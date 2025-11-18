@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gabekile Projects — Construction & Engineering</title>
+    <meta name="description"
+      content="Gabekile Projects: general building, civil, electrical, mechanical engineering and project management. Proudly black-owned since 2018." />
+
+
+    <link rel="icon" type="image/png" href="logo/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <meta property="og:title" content="Gabekile Projects — Construction & Engineering" />
+    <meta property="og:description" content="High-quality construction, civil, and project management services." />
+    <meta property="og:image" content="images/og-preview.jpg" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+
+ <style>
+    :root {
+      --brand-yellow: #ffb300;
+      --brand-dark: #0f1720;
+      --brand-accent: #ff7a00;
+      --text-color: #1e1e1e;
+      --muted: #6b7280;
+      --bg-light: #f4f4f9;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .fa-brands {
+      /* Specific font family for Font Awesome Brands icons */
+      font-family: "Font Awesome 6 Brands" !important;
+      font-weight: 400 !important;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-light);
+      /* Light textured background pattern */
+      background-image: linear-gradient(45deg,
+          rgba(0, 0, 0, 0.01) 25%,
+          transparent 25%,
+          transparent 75%,
+          rgba(0, 0, 0, 0.01) 75%,
+          rgba(0, 0, 0, 0.01));
+      background-size: 15px 15px;
+    }
+
+    .card,
+    .affiliation-section {
+      background-color: var(--card-bg);
+      background-image: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.2em;
+      color: var(--brand-dark);
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* Fade-in animation utility */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- Header & Navigation --- */
+    header {
+      background-color: var(--brand-dark);
+      color: white;
+      padding-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    /* All 'header.scrolled' styles removed as they are not used in HTML */
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      background-color: var(--brand-yellow);
+      color: var(--brand-dark);
+      font-weight: 800;
+      font-size: 24px;
+      border-radius: var(--radius);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand-tagline {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 13px;
+    }
+
+    #navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    #navbar a:hover {
+      color: var(--brand-yellow);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 40px;
+      padding: 60px 0 80px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      line-height: 1.1;
+      /* Adjusted for contrast on dark background */
+      color: rgb(164, 162, 162);
+    }
+
+    .hero .lead {
+      max-width: 600px;
+      color: rgba(240, 236, 236, 0.8);
+      margin-bottom: 25px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 15px;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+      border: 2px solid transparent;
+      background-color: var(--brand-yellow);
+      color: var(--brand-dark);
+    }
+
+    .btn:hover {
+      background-color: #f7ca03;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn.outline {
+      background: transparent;
+      border-color: var(--brand-yellow);
+      color: var(--brand-yellow);
+    }
+
+    .btn.outline:hover {
+      background-color: rgba(255, 215, 0, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      color: var(--brand-yellow);
+      border-color: var(--brand-yellow);
+    }
+
+    .hero-fact-row {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-fact-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      max-width: 520px;
+      padding: 15px;
+    }
+
+    .hero-fact-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--brand-yellow), var(--brand-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--brand-dark);
+    }
+
+    .hero-fact-title {
+      color: var(--muted);
+    }
+
+    .hero-fact-text {
+      color: var(--muted);
+    }
+
+    .hero-card-aside {
+      background-color: var(--card-bg);
+      color: var(--brand-dark);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-desc {
+      margin: 6px 0 12px 0;
+      color: var(--muted);
+    }
+
+    .hero-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-card-item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Facts Bar beneath Hero */
+    .facts-bar {
+      background-color: var(--brand-dark);
+      padding: 30px 0;
+      /* Overlap the hero section */
+      margin-top: -60px;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .fact-number {
+      color: var(--brand-yellow);
+      font-size: 2.5em;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .fact-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    /* --- CLIENTELE SECTION --- */
+    .clientele-banner {
+      padding: 40px 0;
+      background-color: var(--card-bg);
+    }
+
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      .banner-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .banner-text h2 {
+      margin-top: 0;
+      color: var(--brand-dark);
+    }
+
+    .banner-text p {
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .banner-affiliations {
+      padding: 20px;
+      border-left: 3px solid var(--brand-yellow);
+      background-color: var(--bg-light);
+      border-radius: var(--radius);
+    }
+
+    @media (max-width: 768px) {
+      .banner-affiliations {
+        border-left: none;
+        border-top: 3px solid var(--brand-yellow);
+        margin-top: 20px;
+      }
+    }
+
+    .banner-affiliations h3 {
+      margin-top: 0;
+      font-size: 1.2em;
+    }
+
+    .banner-affiliations p {
+      font-size: 1em;
+      color: #666;
+    }
+
+
+    /* --- GROWTH & EXPANSION (TIMELINE) --- */
+    .centered-milestones-wrapper {
+      padding: 60px 20px;
+    }
+
+    .growth-milestones-card {
+      position: relative;
+      padding-left: 50px;
+      /* Ensures card is initially hidden for JS to reveal */
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    /* State added by JavaScript when element scrolls into view */
+    .scroll-fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .milestone-container {
+      position: relative;
+    }
+
+    /* The vertical "progress bar" line */
+    .milestone-container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 25px;
+      width: 2px;
+      background-color: #e0e0e0;
+      z-index: 0;
+    }
+
+    .milestone-item {
+      position: relative;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s;
+    }
+
+    .milestone-item.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* The milestone dots - FIX: top: 0 to align with content top */
+    .milestone-dot {
+      position: absolute;
+      top: 0;
+      /* FIX: Align with the top of the milestone-item content */
+      left: 15px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--card-bg);
+      /* Using hardcoded colors as they were not defined in :root for clarity */
+      border: 2px solid var(--brand-yellow);
+      border-radius: 50%;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .milestone-item:hover .milestone-dot {
+      background-color: var(--brand-yellow);
+      transform: scale(1.1);
+      box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.4);
+    }
+
+    .milestone-content {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
+      margin-left: 0;
+    }
+
+    .milestone-item:hover .milestone-content {
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .milestone-content h4 {
+      margin-top: 0;
+      color: var(--brand-dark);
+      display: flex;
+      align-items: center;
+      font-size: 1.1em;
+    }
+
+    .milestone-year {
+      font-weight: normal;
+      font-size: 0.9em;
+      color: #777;
+      margin-left: 8px;
+    }
+
+    .milestone-content p {
+      font-size: 0.9em;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Color Overrides (Custom dot colors) */
+    .milestone-item.short-term .milestone-dot {
+      border-color: var(--brand-yellow);
+    }
+
+    .milestone-item.mid-term .milestone-dot {
+      border-color: #4CAF50;
+    }
+
+    .milestone-item.long-term .milestone-dot {
+      border-color: #2196F3;
+    }
+
+    .milestone-item.short-term:hover .milestone-dot {
+      background-color: var(--brand-yellow);
+    }
+
+    .milestone-item.mid-term:hover .milestone-dot {
+      background-color: #4CAF50;
+    }
+
+    .milestone-item.long-term:hover .milestone-dot {
+      background-color: #2196F3;
+    }
+
+
+    /* Team Section */
+    .team-section {
+      background: var(--bg-light);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .team-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease-out;
+    }
+
+    .team-card:hover {
+      transform: scale(1.03);
+    }
+
+    .team-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 4px solid var(--brand-yellow);
+      transition: border-color 0.3s;
+    }
+
+    .team-card:hover img {
+      border-color: #f7ca03;
+    }
+
+    .team-card .role {
+      color: var(--brand-yellow);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: var(--brand-dark);
+      font-size: 1.2em;
+      margin: 0 5px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--brand-yellow);
+    }
+
+    /* Affiliation Section */
+    .affiliation-section {
+      background: white;
+    }
+
+    .affiliations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      align-items: start;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .affiliation img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 8px;
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+    }
+
+    .affiliation:hover img {
+      filter: grayscale(0%);
+    }
+
+    .affiliation-title {
+      color: var(--brand-dark);
+    }
+
+    .affiliation-detail {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #0f1720;
+      color: #ecf0f1;
+      padding: 60px 0 20px 0;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding-bottom: 30px;
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-col h3,
+    .footer-col h4 {
+      color: var(--brand-yellow);
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .footer-col p {
+      color: #bdc3c7;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .footer-col p .motto {
+      font-weight: bold;
+      color: #fff;
+      font-style: italic;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col a {
+      color: #ecf0f1;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .footer-col a:hover {
+      color: var(--brand-yellow);
+    }
+
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .footer-contact i {
+      margin-right: 10px;
+      font-size: 1.1em;
+      padding-top: 3px;
+      color: var(--brand-yellow);
+    }
+
+    .footer-contact a {
+      color: #ecf0f1;
+    }
+
+    .footer-socials a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      background-color: #3e5063;
+      border-radius: 50%;
+      margin-right: 10px;
+      color: #ecf0f1;
+      font-size: 1.1em;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .footer-socials a:hover {
+      background-color: var(--brand-yellow);
+      color: var(--brand-dark);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #3e5063;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #bdc3c7;
+    }
+
+    .footer-bottom p {
+      margin: 5px 0;
+    }
+
+    /* Back To Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      z-index: 999;
+      cursor: pointer;
+      /* Default display is handled by JS for visibility control */
+      display: none;
+      background-color: var(--brand-dark);
+      color: white;
+      font-size: 1.2em;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back-to-top-btn:hover {
+      background-color: var(--brand-accent);
+      color: var(--brand-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .back-to-top-btn i {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .back-to-top-btn:hover i {
+      transform: translateY(-2px);
+    }
+
+    /* --- Modals (retained since they exist in HTML) --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background-color: var(--card-bg);
+      margin: auto;
+      padding: 20px;
+      border-radius: var(--radius);
+      position: relative;
+      max-width: 900px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    #projectModal .modal-content img {
+      width: 100%;
+      height: auto;
+      max-height: 50vh;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border-radius: var(--radius);
+    }
+
+    #projectModal .modal-title {
+      color: var(--brand-dark);
+      margin-top: 0;
+    }
+
+    .close-btn {
+      color: var(--muted);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+      color: var(--brand-dark);
+      text-decoration: none;
+    }
+
+    /* Gallery Modal styles removed as they target a non-existent structure/flow */
+
+    /* --- Media Queries --- */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-bottom: 30px;
+      }
+
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 10px;
+      }
+
+    }
+
+    @media (max-width: 768px) {
+
+      /* Mobile Menu Toggle */
+      #navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: rgba(26, 26, 26, 0.95);
+        padding: 10px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 500;
+      }
+
+      #navbar ul.active {
+        display: flex;
+      }
+
+      #navbar li {
+        text-align: center;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .topbar {
+        padding: 10px 0 10px;
+      }
+
+      .footer-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <a href="#top" class="logo">G</a>
+        <div>
+          <div class="brand-title">Gabekile Projects</div>
+          <small class="brand-tagline">
+            General Building • Civil • Mechanical • Electrical • Project Management
+          </small>
+        </div>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">
+        ☰
+      </button>
+
+      <nav id="navbar">
+        <ul id="navbar-menu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="#team" data-scroll-to="team">Team</a></li>
+          <li><a href="#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="hero">
+      <div>
+        <h1>Building the future, shaping communities.</h1>
+        <p class="lead">Gabekile Projects is a proudly black-owned construction and engineering company established in
+          2018. We deliver high-quality general building, civil, mechanical, electrical engineering and
+          professional project management across the region.</p>
+        <div class="cta">
+          <a href="contact.html" class="btn">Get a Quote</a>
+          <a href="portfolio.html" class="btn outline">Our Projects</a>
+        </div>
+
+        <div class="hero-fact-row">
+          <div class="card hero-fact-card">
+            <div class="hero-fact-icon">CIDB</div>
+            <div>
+              <div class="hero-fact-title">CIDB Grades</div>
+              <div class="hero-fact-text">4CE PE, 4GB, 3ME — General building, Civil, Mechanical,
+                Electrical & Project Management</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card hero-card-aside">
+        <h3>Quick Facts</h3>
+        <p class="hero-card-desc">Founded 2018 — Proudly Black-Owned — Reg:
+          2018/497520/07
+        </p>
+        <div class="hero-card-list">
+          <div class="hero-card-item"><small class="muted">Head
+              Office</small>White River, 1200</div>
+          <div class="hero-card-item"><small class="muted">Phone</small>+27 79 515
+            7458</div>
+          <div class="hero-card-item"><small class="muted">Email</small>info@gabekilepro.co.za</div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <section class="facts-bar">
+    <div class="container">
+      <div class="facts-grid">
+        <div class="fact fade-in">
+          <div class="fact-number">4GB/4CE</div>
+          <div class="fact-label">CIDB Grading</div>
+        </div>
+        <div class="fact fade-in">
+          <div class="fact-number counter" data-target="6">0</div>
+          <div class="fact-label">Years Experience</div>
+        </div>
+        <div class="fact fade-in">
+          <div class="fact-number counter" data-target="100">0</div>
+          <div class="fact-label">Projects Completed</div>
+        </div>
+        <div class="fact fade-in">
+          <div class="fact-number counter" data-target="85">0</div>
+          <div class="fact-label">Local Sourcing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+
+<main>
+  <section id="clients" class="full-width-section">
+  <!-- Our Clientele Section -->
+  <div class="clientele-banner container">
+    <div class="banner-grid">
+      <div class="banner-text">
+        <h2>Our Clientele</h2>
+        <p>We serve a diverse mix of clients: Government departments, private developers, corporate entities,
+          residential clients and non-profits. Our trusted relationships and tailored solutions keep clients
+          returning.</p>
+      </div>
+      <div class="banner-affiliations">
+        <h3>Affiliations & Registrations</h3>
+        <p>Company Reg: 2018/497520/07<br />VAT: 4690305273</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Growth & Expansion Plan (Timeline) -->
+  <div class="container centered-milestones-wrapper">
+    <div class="card growth-milestones-card scroll-fade-in">
+      <h2>Growth & Expansion Plan</h2>
+
+      <div class="milestone-container">
+
+        <div class="milestone-item short-term scroll-fade-in">
+          <div class="milestone-dot"></div>
+          <div class="milestone-content-wrapper">
+            <div class="milestone-content">
+              <h4>Short-term <span class="milestone-year">(by 2028)</span></h4>
+              <p>Expand into 2-3 new African countries, increase project portfolio by 30% and invest in digital
+                transformation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="milestone-item mid-term scroll-fade-in">
+          <div class="milestone-dot"></div>
+          <div class="milestone-content-wrapper">
+            <div class="milestone-content">
+              <h4>Mid-term <span class="milestone-year">(by 2031)</span></h4>
+              <p>Presence in 5-7 international markets; diversify into sustainable infrastructure.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="milestone-item long-term scroll-fade-in">
+          <div class="milestone-dot"></div>
+          <div class="milestone-content-wrapper">
+            <div class="milestone-content">
+              <h4>Long-term <span class="milestone-year">(by 2034)</span></h4>
+              <p>Operate in 10+ countries with significant industry recognition.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section id="team" class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-intro">
+        Our experienced and dedicated professionals lead Gabekile Projects with a commitment to quality, innovation,
+        and excellence.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-card fade-in">
+          <img src="logo/logo.png" alt="Mr. Keith Mbatsane, Founder & CEO">
+          <h3>Mr. Keith Mbatsane</h3>
+          <p class="role">Founder & CEO</p>
+          <p>
+            Visionary leader and civil engineer with a passion for sustainable development and community upliftment.
+          </p>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" aria-label="Instagram profile"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card fade-in">
+          <img src="logo/logo.png" alt="Project Engineer">
+          <h3>Gabekile Projects Team Member</h3>
+          <p class="role">Project Engineer</p>
+          <p>
+            Expert in structural and electrical systems, dedicated to technical precision and innovation in design.
+          </p>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" aria-label="Instagram profile"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="affiliation" class="affiliation-section">
+    <div class="container">
+      <h2 class="section-title">Our Affiliation Bodies</h2>
+      <div class="affiliations-grid">
+        <div class="affiliation fade-in">
+          <img src="images/Affiliates/cipc.jpeg" alt="CIPC Logo">
+          <div class="affiliation-title">Companies & Intellectual Property Commission</div>
+          <small class="affiliation-detail">Reg No: 2018/497520/07</small>
+        </div>
+
+        <div class="affiliation fade-in">
+          <img src="images/Affiliates/csd.png" alt="CSD Logo">
+          <div class="affiliation-title">Central Supplier Database</div>
+          <small class="affiliation-detail">MAAA0765334</small>
+        </div>
+
+        <div class="affiliation fade-in">
+          <img src="images/Affiliates/fnb.png" alt="FNB Logo">
+          <div class="affiliation-title">First National Bank</div>
+          <small class="affiliation-detail">62283633425</small>
+        </div>
+
+        <div class="affiliation fade-in">
+          <img src="images/Affiliates/cf.png" alt="Compensation Fund Logo">
+          <div class="affiliation-title">Compensation Fund</div>
+          <small class="affiliation-detail">990001408602</small>
+        </div>
+
+        <div class="affiliation fade-in">
+          <img src="images/Affiliates/nhbrc.png" alt="NHBRC Logo">
+          <div class="affiliation-title">National Home Builders Registration Council</div>
+          <small class="affiliation-detail">4000060607</small>
+        </div>
+
+        <div class="affiliation fade-in">
+          <img src="images/Affiliates/sars.jpeg" alt="SARS Logo">
+          <div class="affiliation-title">South African Revenue Service</div>
+          <small class="affiliation-detail">VAT: 4690305273</small>
+        </div>
+
+        <div class="affiliation fade-in">
+          <img src="images/Affiliates/cibd.png" alt="CIDB Logo">
+          <div class="affiliation-title">Construction Industry Development Board</div>
+          <small class="affiliation-detail">4GB / 4CE PE</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <button id="backToTop" data-scroll-to="top" class="btn back-to-top-btn" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  </section>
+
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-col">
+      <h3>Gabekile Projects</h3>
+      <p>
+        Our client base includes but not limited to: Government, Private Sector, Industrial and Corporate Clients whom
+        we serve with the same dedication, as we at Gabekile Projects believe there is no job
+        too big or small. **<span class="motto">“We aim to excel!!!”</span>
+      </p>
+      <div class="footer-socials">
+        <a href="[Your Facebook Link]" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="[Your LinkedIn Link]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="[Your Instagram Link]" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Our Services</a></li>
+        <li><a href="portfolio.html">Projects</a></li>
+        <li><a href="#team" data-scroll-to="team">Team</a></li>
+        <li><a href="#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
+        <li><a href="#contact" data-scroll-to="contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul class="footer-contact">
+        <li><i class="fa-solid fa-location-dot"></i> <a href="https://www.google.com/maps/place/White+River,+1240/">30
+            Outenique, White River</a>
+        </li>
+        <li><i class="fa-solid fa-phone"></i> <a href="tel:+27795157458">+27 79 515 7458</a></li>
+        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@gabekilepro.co.za">info@gabekilepro.co.za</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-legal">
+      Company Reg: 2018/497520/07 | VAT: 4690305273
+    </p>
+    <p>© 2025 Gabekile Projects (Pty) Ltd. All Rights Reserved. | Website designed by Gabekile Projects Web Team.</p>
+  </div>
+</footer>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // =========================================================
+    // 1. UTILITY FUNCTIONS & COUNTER LOGIC
+    // =========================================================
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    /**
+     * Animated Number Counter Function (Optimized & Consolidated)
+     * Triggers when '.counter' element becomes visible via IntersectionObserver.
+     */
+    function animateCounter(el) {
+      if (el.classList.contains('counted')) {
+        return;
+      }
+      el.classList.add('counted');
+
+      const target = +el.getAttribute('data-target');
+      // Determine required suffix once
+      const factLabel = el.parentElement.querySelector('.fact-label').textContent;
+      const suffix = factLabel.includes('Sourcing') ? '%' : factLabel.includes('Years') ? '+' : '';
+
+      // Set speed and increment
+      const duration = 2000; // Total duration in ms
+      const stepTime = 10; // Interval time in ms
+      const totalSteps = duration / stepTime;
+      const increment = target / totalSteps;
+
+      let count = 0;
+
+      const updateCount = () => {
+        count += increment;
+
+        if (count < target) {
+          let displayValue = Math.ceil(count);
+
+          // Special case for 'Years' to show intermediate '+' only if not at target
+          if (suffix === '+' && displayValue < target) {
+            el.innerText = displayValue + suffix;
+          } else {
+            // Only apply final suffix for non-plus counters, or final number for plus counters
+            el.innerText = displayValue + (suffix === '+' ? '' : suffix);
+          }
+          setTimeout(updateCount, stepTime);
+        } else {
+          // Ensure final value is set exactly with suffix
+          el.innerText = target + suffix;
+        }
+      };
+      updateCount();
+    }
+
+
+
+    // =========================================================
+    // 2. INTERSECTION OBSERVER (Fade-In & Counter Trigger)
+    // =========================================================
+
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // Check for counter animation trigger
+          if (entry.target.classList.contains('fact')) {
+            entry.target.querySelectorAll('.counter').forEach(counterEl => {
+              animateCounter(counterEl);
+            });
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    // Observe elements that need the fade-in effect or counter animation
+    document.querySelectorAll('.fade-in, .team-card, .affiliation, .fact').forEach(el => {
+      io.observe(el);
+    });
+
+    // --- Observer for Timeline Scroll Animation ---
+    const fadeElements = document.querySelectorAll(".scroll-fade-in");
+    const observerOptions = {
+      root: null, // relative to the viewport
+      rootMargin: "0px",
+      threshold: 0.1 // Percentage of element visibility needed to trigger
+    };
+
+    const timelineObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target); // Stop observing once visible
+        }
+      });
+    }, observerOptions);
+
+    fadeElements.forEach(element => {
+      timelineObserver.observe(element);
+    });
+
+
+    // =========================================================
+    // 3. SCROLL LOGIC
+    // =========================================================
+
+    const backToTopBtn = document.getElementById('backToTop');
+    // Removed 'header' variable and sticky header logic.
+
+    window.addEventListener('scroll', () => {
+      // Back to Top Button visibility
+      if (backToTopBtn) {
+        // Show/hide logic handles CSS `display: none`/`display: flex`
+        backToTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+      }
+      // Removed Sticky Header Shrink Logic
+    });
+
+    // =========================================================
+    // 4. NAVIGATION & SMOOTH SCROLLING
+    // =========================================================
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbarMenu = document.getElementById('navbar-menu');
+
+    if (menuToggle && navbarMenu) {
+      menuToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+      });
+
+      // Close menu and handle smooth scroll when a link is clicked
+      navbarMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          navbarMenu.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+
+          const targetId = link.getAttribute('data-scroll-to') || link.getAttribute('href').substring(1);
+
+          // Check if it's an internal link (not an external page)
+          if (targetId && targetId.indexOf('.') === -1) {
+            e.preventDefault();
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else if (targetId === 'top') {
+              scrollToTop();
+            }
+          }
+        });
+      });
+    }
+
+    // Apply smooth scroll to all other relevant anchors (e.g., CTA buttons)
+    document.querySelectorAll('[data-scroll-to]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('data-scroll-to');
+
+        if (targetId === 'top') {
+          scrollToTop();
+          return;
+        }
+
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // =========================================================
+    // 5. MODAL LOGIC 
+    // =========================================================
+
+    const projectModal = document.getElementById('projectModal');
+    const modalCloseBtn = document.getElementById('modalClose');
+
+    // Close Modal Function (Centralized)
+    function closeModal(modalElement) {
+      if (modalElement) {
+        modalElement.style.display = 'none';
+        modalElement.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Project Modal Close Handler
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', () => closeModal(projectModal));
+    }
+
+    // Modal Close Handler for outside click
+    window.addEventListener('click', (event) => {
+      if (event.target === projectModal) {
+        closeModal(projectModal);
+      }
+    });
+
+    // Removed duplicated DOMContentLoaded wrapper at the bottom
+  });
+
+
+</script>
+</body>
+
+</html>
