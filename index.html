@@ -740,39 +740,59 @@ NEW SERVICE SECTION STYLES
       color: var(--brand-yellow);
     }
 
-    /* Affiliation Section */
+    /* affilition */
     .affiliation-section {
       background: white;
-    }
-
-    .affiliations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 30px;
-      align-items: start;
-      justify-items: center;
+      padding: 60px 0;
+      overflow: hidden;
       text-align: center;
     }
 
+    .scroller-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .affiliations-scroller {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: max-content;
+      animation: scrollLeft 60s linear infinite;
+    }
+
+    .scroller-content {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .affiliation {
+      text-align: center;
+      min-width: 160px;
+    }
+
     .affiliation img {
-      width: 100px;
+      width: 80px;
       height: auto;
       margin-bottom: 8px;
       filter: grayscale(100%);
-      transition: filter 0.3s;
+      transition: 0.3s;
     }
 
     .affiliation:hover img {
       filter: grayscale(0%);
     }
 
-    .affiliation-title {
-      color: var(--brand-dark);
-    }
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0);
+      }
 
-    .affiliation-detail {
-      color: var(--muted);
-      font-size: 13px;
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     /* Footer */
@@ -1311,52 +1331,101 @@ NEW SERVICE SECTION STYLES
   <section id="affiliation" class="affiliation-section">
     <div class="container">
       <h2 class="section-title">Our Affiliation Bodies</h2>
-      <div class="affiliations-grid">
-        <div class="affiliation fade-in">
-          <img src="images/Affiliates/cipc.jpeg" alt="CIPC Logo">
-          <div class="affiliation-title">Companies & Intellectual Property Commission</div>
-          <small class="affiliation-detail">Reg No: 2018/497520/07</small>
-        </div>
 
-        <div class="affiliation fade-in">
-          <img src="images/Affiliates/csd.png" alt="CSD Logo">
-          <div class="affiliation-title">Central Supplier Database</div>
-          <small class="affiliation-detail">MAAA0765334</small>
-        </div>
+      <div class="scroller-wrapper">
+        <div class="affiliations-scroller">
 
-        <div class="affiliation fade-in">
-          <img src="images/Affiliates/fnb.png" alt="FNB Logo">
-          <div class="affiliation-title">First National Bank</div>
-          <small class="affiliation-detail">62283633425</small>
-        </div>
+          <div class="scroller-content">
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/cipc.jpeg" alt="CIPC Logo">
+              <div class="affiliation-title">Companies & Intellectual Property Commission</div>
+              <small class="affiliation-detail">Reg No: 2018/497520/07</small>
+            </div>
 
-        <div class="affiliation fade-in">
-          <img src="images/Affiliates/cf.png" alt="Compensation Fund Logo">
-          <div class="affiliation-title">Compensation Fund</div>
-          <small class="affiliation-detail">990001408602</small>
-        </div>
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/csd.png" alt="CSD Logo">
+              <div class="affiliation-title">Central Supplier Database</div>
+              <small class="affiliation-detail">MAAA0765334</small>
+            </div>
 
-        <div class="affiliation fade-in">
-          <img src="images/Affiliates/nhbrc.png" alt="NHBRC Logo">
-          <div class="affiliation-title">National Home Builders Registration Council</div>
-          <small class="affiliation-detail">4000060607</small>
-        </div>
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/fnb.png" alt="FNB Logo">
+              <div class="affiliation-title">First National Bank</div>
+              <small class="affiliation-detail">62283633425</small>
+            </div>
 
-        <div class="affiliation fade-in">
-          <img src="images/Affiliates/sars.jpeg" alt="SARS Logo">
-          <div class="affiliation-title">South African Revenue Service</div>
-          <small class="affiliation-detail">VAT: 4690305273</small>
-        </div>
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/cf.png" alt="Compensation Fund Logo">
+              <div class="affiliation-title">Compensation Fund</div>
+              <small class="affiliation-detail">990001408602</small>
+            </div>
 
-        <div class="affiliation fade-in">
-          <img src="images/Affiliates/cibd.png" alt="CIDB Logo">
-          <div class="affiliation-title">Construction Industry Development Board</div>
-          <small class="affiliation-detail">4GB / 4CE PE</small>
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/nhbrc.png" alt="NHBRC Logo">
+              <div class="affiliation-title">National Home Builders Registration Council</div>
+              <small class="affiliation-detail">4000060607</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/sars.jpeg" alt="SARS Logo">
+              <div class="affiliation-title">South African Revenue Service</div>
+              <small class="affiliation-detail">VAT: 4690305273</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/cibd.png" alt="CIDB Logo">
+              <div class="affiliation-title">Construction Industry Development Board</div>
+              <small class="affiliation-detail">4GB / 4CE PE</small>
+            </div>
+          </div>
+
+          <div class="scroller-content">
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/cipc.jpeg" alt="CIPC Logo">
+              <div class="affiliation-title">Companies & Intellectual Property Commission</div>
+              <small class="affiliation-detail">Reg No: 2018/497520/07</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/csd.png" alt="CSD Logo">
+              <div class="affiliation-title">Central Supplier Database</div>
+              <small class="affiliation-detail">MAAA0765334</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/fnb.png" alt="FNB Logo">
+              <div class="affiliation-title">First National Bank</div>
+              <small class="affiliation-detail">62283633425</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/cf.png" alt="Compensation Fund Logo">
+              <div class="affiliation-title">Compensation Fund</div>
+              <small class="affiliation-detail">990001408602</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/nhbrc.png" alt="NHBRC Logo">
+              <div class="affiliation-title">National Home Builders Registration Council</div>
+              <small class="affiliation-detail">4000060607</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/sars.jpeg" alt="SARS Logo">
+              <div class="affiliation-title">South African Revenue Service</div>
+              <small class="affiliation-detail">VAT: 4690305273</small>
+            </div>
+
+            <div class="affiliation fade-in">
+              <img src="images/Affiliates/cibd.png" alt="CIDB Logo">
+              <div class="affiliation-title">Construction Industry Development Board</div>
+              <small class="affiliation-detail">4GB / 4CE PE</small>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
 
   <button id="backToTop" data-scroll-to="top" class="btn back-to-top-btn" aria-label="Back to top">
     <i class="fa-solid fa-arrow-up"></i>
