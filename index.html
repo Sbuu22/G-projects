@@ -26,7 +26,7 @@
   </head>
 
 
- <style>
+  <style>
     :root {
       --brand-yellow: #ffb300;
       --brand-dark: #0f1720;
@@ -523,6 +523,63 @@
     }
 
 
+    /* ========================================================
+NEW SERVICE SECTION STYLES
+======================================================== */
+
+    .section-padding {
+      padding-block: 5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 2rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+    }
+
+    .service-item {
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      font-size: 3.5rem;
+      color: var(--brand-yellow);
+      display: block;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+    }
+
+    .service-label {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 600px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+      }
+
+      .service-label {
+        font-size: 0.85rem;
+      }
+    }
+
+
     /* Team Section */
     .team-section {
       background: var(--bg-light);
@@ -979,62 +1036,104 @@
 
 <main>
   <section id="clients" class="full-width-section">
-  <!-- Our Clientele Section -->
-  <div class="clientele-banner container">
-    <div class="banner-grid">
-      <div class="banner-text">
-        <h2>Our Clientele</h2>
-        <p>We serve a diverse mix of clients: Government departments, private developers, corporate entities,
-          residential clients and non-profits. Our trusted relationships and tailored solutions keep clients
-          returning.</p>
-      </div>
-      <div class="banner-affiliations">
-        <h3>Affiliations & Registrations</h3>
-        <p>Company Reg: 2018/497520/07<br />VAT: 4690305273</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Growth & Expansion Plan (Timeline) -->
-  <div class="container centered-milestones-wrapper">
-    <div class="card growth-milestones-card scroll-fade-in">
-      <h2>Growth & Expansion Plan</h2>
-
-      <div class="milestone-container">
-
-        <div class="milestone-item short-term scroll-fade-in">
-          <div class="milestone-dot"></div>
-          <div class="milestone-content-wrapper">
-            <div class="milestone-content">
-              <h4>Short-term <span class="milestone-year">(by 2028)</span></h4>
-              <p>Expand into 2-3 new African countries, increase project portfolio by 30% and invest in digital
-                transformation.</p>
-            </div>
-          </div>
+    <!-- Our Clientele Section -->
+    <div class="clientele-banner container">
+      <div class="banner-grid">
+        <div class="banner-text">
+          <h2>Our Clientele</h2>
+          <p>We serve a diverse mix of clients: Government departments, private developers, corporate entities,
+            residential clients and non-profits. Our trusted relationships and tailored solutions keep clients
+            returning.</p>
         </div>
-
-        <div class="milestone-item mid-term scroll-fade-in">
-          <div class="milestone-dot"></div>
-          <div class="milestone-content-wrapper">
-            <div class="milestone-content">
-              <h4>Mid-term <span class="milestone-year">(by 2031)</span></h4>
-              <p>Presence in 5-7 international markets; diversify into sustainable infrastructure.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="milestone-item long-term scroll-fade-in">
-          <div class="milestone-dot"></div>
-          <div class="milestone-content-wrapper">
-            <div class="milestone-content">
-              <h4>Long-term <span class="milestone-year">(by 2034)</span></h4>
-              <p>Operate in 10+ countries with significant industry recognition.</p>
-            </div>
-          </div>
+        <div class="banner-affiliations">
+          <h3>Affiliations & Registrations</h3>
+          <p>Company Reg: 2018/497520/07<br />VAT: 4690305273</p>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- Growth & Expansion Plan (Timeline) -->
+    <div class="container centered-milestones-wrapper">
+      <div class="card growth-milestones-card scroll-fade-in">
+        <h2>Growth & Expansion Plan</h2>
+
+        <div class="milestone-container">
+
+          <div class="milestone-item short-term scroll-fade-in">
+            <div class="milestone-dot"></div>
+            <div class="milestone-content-wrapper">
+              <div class="milestone-content">
+                <h4>Short-term <span class="milestone-year">(by 2028)</span></h4>
+                <p>Expand into 2-3 new African countries, increase project portfolio by 30% and invest in digital
+                  transformation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="milestone-item mid-term scroll-fade-in">
+            <div class="milestone-dot"></div>
+            <div class="milestone-content-wrapper">
+              <div class="milestone-content">
+                <h4>Mid-term <span class="milestone-year">(by 2031)</span></h4>
+                <p>Presence in 5-7 international markets; diversify into sustainable infrastructure.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="milestone-item long-term scroll-fade-in">
+            <div class="milestone-dot"></div>
+            <div class="milestone-content-wrapper">
+              <div class="milestone-content">
+                <h4>Long-term <span class="milestone-year">(by 2034)</span></h4>
+                <p>Operate in 10+ countries with significant industry recognition.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- short discription Service -->
+  <section id="services" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Engineering Excellence, Driven by Service.</h2>
+
+
+      <div class="services-grid">
+
+        <div class="service-item fade-in">
+          <i class="fas fa-hammer service-icon"></i>
+          <p class="service-label">General Building</a>
+        </div>
+
+        <div class="service-item fade-in">
+          <i class="fas fa-road service-icon"></i>
+          <p class="service-label">Civil Engineering</p>
+        </div>
+
+        <div class="service-item fade-in">
+          <i class="fas fa-bolt service-icon"></i>
+          <p class="service-label">Electrical Engineering</p>
+        </div>
+
+        <div class="service-item fade-in">
+          <i class="fas fa-cogs service-icon"></i>
+          <p class="service-label">Mechanical Engineering</p>
+        </div>
+
+        <div class="service-item fade-in">
+          <i class="fas fa-clipboard-check service-icon"></i>
+          <p class="service-label">Project Management</p>
+        </div>
+
+        <div class="service-item fade-in">
+          <i class="fas fa-leaf service-icon"></i>
+          <p class="service-label">Environmental & Sustainability</p>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <section id="team" class="team-section">
@@ -1140,7 +1239,7 @@
       <p>
         Our client base includes but not limited to: Government, Private Sector, Industrial and Corporate Clients whom
         we serve with the same dedication, as we at Gabekile Projects believe there is no job
-        too big or small. **<span class="motto">“We aim to excel!!!”</span>
+        too big or small. <span class="motto">“We aim to excel!!!”</span>
       </p>
       <div class="footer-socials">
         <a href="[Your Facebook Link]" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
