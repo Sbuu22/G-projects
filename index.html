@@ -579,6 +579,107 @@ NEW SERVICE SECTION STYLES
       }
     }
 
+    /* Our Process style */
+
+    .process-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .process-header h4 {
+      color: #6b7280;
+      letter-spacing: 1.5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .process-header h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .process-header p {
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto 50px;
+    }
+
+    .process-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      gap: 80px;
+      flex-wrap: nowrap;
+    }
+
+    .process-container::before {
+      content: "";
+      position: absolute;
+      top: 45px;
+      left: calc(50% - 350px);
+      width: 700px;
+      height: 3px;
+      background: #6b7280;
+      z-index: 1;
+    }
+
+
+
+    .process-step {
+      max-width: 320px;
+    }
+
+    .step-circle {
+      width: 90px;
+      height: 90px;
+      background: #ffb300;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      font-weight: bold;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step-circle::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: #ffb300;
+      border-radius: 50%;
+      position: absolute;
+      top: -8px;
+      right: -9px;
+    }
+
+    .process-step h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+
+    @media (max-width: 768px) {
+      .process-steps {
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
 
     /* Team Section */
     .team-section {
@@ -1135,6 +1236,39 @@ NEW SERVICE SECTION STYLES
       </div>
     </div>
   </section>
+
+  <!-- Our Process section -->
+  <section class="process-section">
+    <div class="process-header">
+      <h4>OUR PROCESS</h4>
+      <h2>How to Get Started</h2>
+      <p>Simple, transparent, and efficient—from first contact to project completion</p>
+    </div>
+
+    <div class="process-container">
+      <div class="process-step">
+        <div class="step-circle">01</div>
+        <h3>Define Your Vision</h3>
+        <p>Share your vision with us, and we'll provide expert advice along with a comprehensive estimate for your
+          project.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">02</div>
+        <h3>We Design & Plan</h3>
+        <p>We collaborate closely with you to create a customized plan that perfectly fits your goals, timeline, and
+          budget.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">03</div>
+        <h3>We Construct & Complete</h3>
+        <p>Our skilled team brings the plan to life with quality craftsmanship, precision, and attention to every
+          detail.</p>
+      </div>
+    </div>
+  </section>
+
 
   <section id="team" class="team-section">
     <div class="container">
