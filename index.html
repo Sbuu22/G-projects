@@ -37,7 +37,19 @@
       --card-bg: #ffffff;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       --radius: 8px;
+
+      --step-color-1: #007bff;
+      --step-color-2: #03a9f4;
+      --step-color-3: #00bcd4;
+      --step-color-4: #4caf50;
+      --step-color-5: #8bc34a;
+      --step-color-6: #ffc107;
+      --step-color-7: #ff9800;
+      --step-color-8: #ff5722;
+      --step-color-9: #e91e63;
+      --step-color-10: #9c27b0;
     }
+
 
     * {
       box-sizing: border-box;
@@ -427,6 +439,264 @@
       }
     }
 
+    /* Why Choose Us Section */
+
+    #why-choose-us-section {
+      padding: 80px 0;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+
+    }
+
+    /* Section Header Styles */
+    .section-heading {
+      font-size: 38px;
+      font-weight: 600;
+      color: #333d47;
+      margin-bottom: 20px;
+
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #555555;
+      max-width: 950px;
+      margin: 0 auto 50px auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 30px;
+      text-align: left;
+    }
+
+    .feature-item {
+      border-bottom: 1px solid #eeeeee;
+      padding-bottom: 15px;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #333d47;
+      margin-bottom: 8px;
+      color: #ffb300;
+
+
+    }
+
+    .feature-description {
+      font-size: 14px;
+      color: #666666;
+      line-height: 1.5;
+
+    }
+
+    /* Responsiveness */
+    @media (max-width: 992px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /*Our 10 step process*/
+    #gabekile-process-section {
+      padding: 80px 0;
+      background-color: #ffffff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--primary-color);
+      /* Default, will be overridden */
+      margin: 0 0 5px 0;
+      line-height: 1.2;
+    }
+
+    /* --- Specific Colors for Each Step --- */
+
+    .step-item.step-1 .step-icon-container i,
+    .step-item.step-1 .step-title {
+      color: var(--step-color-1);
+    }
+
+    .step-item.step-2 .step-icon-container i,
+    .step-item.step-2 .step-title {
+      color: var(--step-color-2);
+    }
+
+    .step-item.step-3 .step-icon-container i,
+    .step-item.step-3 .step-title {
+      color: var(--step-color-3);
+    }
+
+    .step-item.step-4 .step-icon-container i,
+    .step-item.step-4 .step-title {
+      color: var(--step-color-4);
+    }
+
+    .step-item.step-5 .step-icon-container i,
+    .step-item.step-5 .step-title {
+      color: var(--step-color-5);
+    }
+
+    .step-item.step-6 .step-icon-container i,
+    .step-item.step-6 .step-title {
+      color: var(--step-color-6);
+    }
+
+    .step-item.step-7 .step-icon-container i,
+    .step-item.step-7 .step-title {
+      color: var(--step-color-7);
+    }
+
+    .step-item.step-8 .step-icon-container i,
+    .step-item.step-8 .step-title {
+      color: var(--step-color-8);
+    }
+
+    .step-item.step-9 .step-icon-container i,
+    .step-item.step-9 .step-title {
+      color: var(--step-color-9);
+    }
+
+    .step-item.step-10 .step-icon-container i,
+    .step-item.step-10 .step-title {
+      color: var(--step-color-10);
+    }
+
+    .section-title {
+      font-size: 38px;
+      font-weight: 600;
+      color: #333d47;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #555555;
+      margin-bottom: 50px;
+    }
+
+    .process-layout-wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .process-steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-basis: 35%;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .step-icon-container {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      margin-right: 20px;
+    }
+
+    .step-icon-container i {
+      font-size: 24px;
+      color: var(--brand-accent);
+    }
+
+    .step-icon-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .step-content {
+      flex-grow: 1;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--brand-accent);
+      margin: 0 0 5px 0;
+      line-height: 1.2;
+    }
+
+    .step-description {
+      font-size: 15px;
+      color: #666666;
+      line-height: 1.5;
+      margin-top: 5px;
+    }
+
+    .process-visual-column {
+      flex-basis: 30%;
+      padding: 0 10px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+    }
+
+    .process-diagram-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 992px) {
+      .process-layout-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .process-steps-list {
+        flex-basis: 100%;
+      }
+
+      .process-visual-column {
+        flex-basis: 100%;
+        order: -1;
+        margin-bottom: 30px;
+        padding: 0;
+      }
+    }
+
     /* --- CLIENTELE SECTION --- */
     .clientele-banner {
       padding: 40px 0;
@@ -490,13 +760,11 @@
     .growth-milestones-card {
       position: relative;
       padding-left: 50px;
-      /* Ensures card is initially hidden for JS to reveal */
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
 
-    /* State added by JavaScript when element scrolls into view */
     .scroll-fade-in.is-visible {
       opacity: 1;
       transform: translateY(0);
@@ -531,16 +799,13 @@
       transform: translateX(0);
     }
 
-    /* The milestone dots - FIX: top: 0 to align with content top */
     .milestone-dot {
       position: absolute;
       top: 0;
-      /* FIX: Align with the top of the milestone-item content */
       left: 15px;
       width: 20px;
       height: 20px;
       background-color: var(--card-bg);
-      /* Using hardcoded colors as they were not defined in :root for clarity */
       border: 2px solid var(--brand-yellow);
       border-radius: 50%;
       z-index: 1;
@@ -616,8 +881,8 @@
 
 
     /* ========================================================
-NEW SERVICE SECTION STYLES
-======================================================== */
+        NEW SERVICE SECTION STYLES
+       ======================================================== */
 
     .section-padding {
       padding-block: 5rem;
@@ -717,8 +982,6 @@ NEW SERVICE SECTION STYLES
       background: #6b7280;
       z-index: 1;
     }
-
-
 
     .process-step {
       max-width: 320px;
@@ -1001,7 +1264,6 @@ NEW SERVICE SECTION STYLES
       border: none;
       z-index: 999;
       cursor: pointer;
-      /* Default display is handled by JS for visibility control */
       display: none;
       background-color: var(--brand-dark);
       color: white;
@@ -1028,7 +1290,6 @@ NEW SERVICE SECTION STYLES
       transform: translateY(-2px);
     }
 
-    /* --- Modals (retained since they exist in HTML) --- */
     .modal {
       display: none;
       position: fixed;
@@ -1317,7 +1578,7 @@ NEW SERVICE SECTION STYLES
     </div>
   </section>
 
-   <!-- Our Process section -->
+  <!-- Our Process section -->
   <section class="process-section">
     <div class="process-header">
       <h4>OUR PROCESS</h4>
@@ -1349,7 +1610,216 @@ NEW SERVICE SECTION STYLES
     </div>
   </section>
 
-<!-- Our Clientele Section -->
+  <section id="why-choose-us-section">
+    <div class="container">
+
+      <h2 class="section-heading">Why clients choose to work with us</h2>
+      <p class="section-subtitle">
+        Established on a foundation of integrity and technical excellence, the Gabekile Projects team is committed to
+        delivering multi-disciplinary construction solutions that consistently meet and exceed expectations across all
+        project phases.
+      </p>
+
+      <div class="features-grid">
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-1">Integrated Multi-Disciplinary Service</h3>
+          <p class="feature-description" id="desc-1">Offering seamless coordination across Civil, Building, Electrical,
+            and Mechanical disciplines, we eliminate communication gaps and ensure streamlined project delivery.</p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-2">Proven Project Management Expertise</h3>
+          <p class="feature-description" id="desc-2">Our certified Project Management team provides robust control over
+            scope, schedule, and budget, ensuring projects are completed on time and within financial targets.</p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-3">Strong Commitment to Safety & Quality</h3>
+          <p class="feature-description" id="desc-3">We adhere strictly to local and international protocols and
+            regulations, maintaining an uncompromising commitment to safety and delivering the highest quality finish.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-4">Deep Technical Experience</h3>
+          <p class="feature-description" id="desc-4">Our team brings decades of collective experience, offering
+            innovative technical solutions for complex challenges in both public and private sectors.</p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-5">Comprehensive Portfolio</h3>
+          <p class="feature-description" id="desc-5">Explore our diverse and impressive portfolio showcasing successful
+            projects across general construction, infrastructure, and specialized installations.</p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-6">Sustainable & Future-Proof Solutions</h3>
+          <p class="feature-description" id="desc-6">We prioritize methods and materials that contribute to
+            environmental sustainability, delivering long-lasting and efficient structures.</p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-7">Cost-Effective Value Engineering</h3>
+          <p class="feature-description" id="desc-7">We strike the perfect balance between excellent service, high-grade
+            materials, and competitive pricing, ensuring maximum value for your investment.</p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-8">Collaborative Client Approach</h3>
+          <p class="feature-description" id="desc-8">We work transparently and collaboratively throughout the project
+            lifecycle, maintaining open communication to ensure successful and shared outcomes.</p>
+        </div>
+
+        <div class="feature-item">
+          <h3 class="feature-title" id="title-9">Responsive Customer Support</h3>
+          <p class="feature-description" id="desc-9">A dedicated project manager is assigned to every client, providing
+            prompt feedback and addressing any concerns immediately throughout the project.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="gabekile-process-section">
+    <div class="container">
+
+      <h2 class="section-title">Our 10 Step Project Management Process</h2>
+      <p class="section-subtitle">
+        At Gabekile Projects, our systematic process gives clients confidence from concept to completion. Each stage is
+        built on precision, accountability, and multi-disciplinary expertise.
+      </p>
+
+      <div class="process-layout-wrapper">
+
+        <ul class="process-steps-list steps-left">
+
+          <li class="step-item step-1">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">1. Concept & Feasibility</h3>
+              <p class="step-description">We begin with a detailed review of your needs and conduct site surveys to
+                define a cost-effective, fit-for-purpose solution for your General Building or Civil requirements.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-2">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-drafting-compass"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">2. Multi-Disciplinary Design</h3>
+              <p class="step-description">Our in-house team creates integrated Civil, Structural, Mechanical, and
+                Electrical designs, ensuring compliance, practicality, and seamless construction from the start.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-3">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">3. Costing & Budget Review</h3>
+              <p class="step-description">We align specifications and requirements with a detailed budget to ensure a
+                cost-effective solution. This includes a thorough Quote Review and Quote Acceptance stage.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-4">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-file-signature"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">4. Contract Finalisation</h3>
+              <p class="step-description">Once the quote is accepted, we finalize the contractual agreement and assign a
+                dedicated Project Manager to provide robust control over scope, schedule, and budget.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-5">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-truck-ramp-box"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">5. Procurement & Logistics</h3>
+              <p class="step-description">We source all materials and secure necessary subcontractors, implementing
+                strict vetting and quality control to ensure supplies meet project standards and optimize supply chain
+                efficiency.</p>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="process-visual-column">
+          <img src="icons/diagram.png" alt="Gabekile Projects 10 Step Process Diagram" class="process-diagram-image">
+        </div>
+
+        <ul class="process-steps-list steps-right">
+
+          <li class="step-item step-6">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-helmet-safety"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">6. Civil & Structural Erection</h3>
+              <p class="step-description">Execution of civil works, foundations, earthworks, and the main building
+                structure under stringent site safety protocols and continuous quality assurance checks.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-7">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">7. MEP Systems Installation</h3>
+              <p class="step-description">Installation and connection of all Mechanical, Electrical, and Plumbing (MEP)
+                systems, seamlessly integrating them with the main building infrastructure.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-8">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-paint-roller"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">8. Finishing & Close-Out</h3>
+              <p class="step-description">Application of final finishes, painting, cladding, and detailing to bring the
+                project to its aesthetic and functional completion as per the approved design.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-9">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-square-check"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">9. Quality Assurance & Commissioning</h3>
+              <p class="step-description">Thorough testing and commissioning of all systems to confirm full operational
+                capacity, safety compliance, and adherence to all regulatory standards.</p>
+            </div>
+          </li>
+
+          <li class="step-item step-10">
+            <div class="step-icon-container">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">10. Client Handover & Training</h3>
+              <p class="step-description">Formal project handover, delivery of final documentation (as-builts,
+                warranties, manuals), and essential training for the client's operations and maintenance teams.</p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Clientele Section -->
   <section id="clients" class="full-width-section">
     <div class="clientele-banner container">
       <div class="banner-grid">
@@ -1408,7 +1878,7 @@ NEW SERVICE SECTION STYLES
     </div>
   </section>
 
-<!--Meet our Team-->
+  <!--Meet our Team-->
   <section id="team" class="team-section">
     <div class="container">
       <h2 class="section-title">Meet Our Team</h2>
