@@ -11,34 +11,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <style>
-        /* --- 1. VARIABLES --- */
         :root {
             --brand-accent: #ffb300;
             --brand-dark: #0f1720;
             --dark-text: var(--brand-dark);
             --radius: 8px;
             --container-width: 1200px;
+            --light-grey-bg: #f4f4f4;
+            --text-color-primary: #555;
         }
 
-
-        /* --- 2. GLOBAL STYLES --- */
+        /* Global & Utility Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: var(--light-grey-bg);
             line-height: 1.6;
         }
 
-        /* --- 1. General Container Styling (unchanged) --- */
         .container {
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 20px;
-            color: #555;
+            color: var(--text-color-primary);
         }
 
-        /* --- 2. Section Title (unchanged) --- */
         .section-title {
             font-size: 2.2em;
             font-weight: 700;
@@ -50,54 +48,41 @@
             display: inline-block;
         }
 
-        /* --- 3. HEADER / NAVIGATION (Fixed to match HTML) --- */
-
-        /* Fix: Changed .main-header to .header */
+        /* Header / Navigation */
         .header {
             width: 100%;
             background-color: var(--brand-dark);
-            /* Removed z-index: 1000; for simplicity, add if needed for sticky/fixed */
         }
 
-        /* Fix: Changed .nav-content to .topbar */
         .topbar {
             display: flex;
-            /* Use space-between to push brand and nav to opposite ends */
             justify-content: space-between;
             align-items: center;
             height: 70px;
         }
 
-        /* Fix: Styles for the .brand container (used to be .logo container) */
         .brand {
             display: flex;
             align-items: center;
             gap: 10px;
-            /* Space between logo and text */
         }
 
-        /* Fix: Styles for the .logo link element 'G' */
         .brand .logo {
             font-size: 24px;
             font-weight: 800;
             color: var(--brand-dark);
-            /* Color of the 'G' text */
-            text-decoration: none;
             background-color: var(--brand-accent);
             padding: 0.5px 8px;
-            border-radius: 8px;
-            /* Removed margin-right: 10px; because .brand uses 'gap' */
+            border-radius: var(--radius);
+            text-decoration: none;
         }
 
-        /* Fix: Styles for the .brand-title (used to be .logo .brand-name) */
         .brand-title {
             color: #fff;
-            /* Changed to white for better contrast on dark background */
             font-size: 1.2em;
             font-weight: 700;
         }
 
-        /* Styles for the .brand-tagline (small text) */
         .brand-tagline {
             color: rgb(180, 180, 180);
             font-size: 0.7em;
@@ -105,10 +90,8 @@
             margin-top: 2px;
         }
 
-        /* Fix: Styles for the Menu Toggle button (hidden on desktop) */
         .menu-toggle {
             display: none;
-            /* Hide on large screens by default */
             background: none;
             border: none;
             color: #fff;
@@ -117,16 +100,13 @@
             padding: 10px;
         }
 
-        /* Fix: Changed .main-nav to #navbar */
         #navbar ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            /* Display list items horizontally on desktop */
         }
 
-        /* Fix: Targeting the list items within the nav */
         #navbar ul li a {
             color: white;
             text-decoration: none;
@@ -135,68 +115,13 @@
             transition: color 0.3s;
         }
 
-        /* Fix: Targeting the list item links on hover */
-        #navbar ul li a:hover {
-            color: var(--brand-accent);
-        }
-
-        /* Fix: Targeting the active link */
+        #navbar ul li a:hover,
         #navbar ul li a.active {
             color: var(--brand-accent);
             font-weight: bold;
         }
 
-
-        /* -------------------------------------------------------------------------------------------------- */
-        /* Add basic mobile/tablet responsiveness for the menu */
-        @media (max-width: 900px) {
-            .menu-toggle {
-                display: block;
-                /* Show menu toggle button on small screens */
-            }
-
-            #navbar {
-                /* Initially hide the menu for mobile */
-                display: none;
-                position: absolute;
-                top: 70px;
-                /* Below the header topbar */
-                right: 0;
-                width: 100%;
-                background-color: var(--brand-dark);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
-
-            /* JavaScript or class toggling will show the menu, e.g., when .topbar.open #navbar is used */
-
-            #navbar-menu {
-                flex-direction: column;
-                /* Stack links vertically on mobile */
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            #navbar-menu li a {
-                padding: 10px 15px;
-            }
-        }
-
-        /* Example: Add a class to the header to show the mobile menu (requires JavaScript) */
-        .header.menu-open #navbar {
-            display: block;
-        }
-
-        /* -------------------------------------------------------------------------------------------------- */
-
-
-        /* --- 4. Page Hero (unchanged) --- */
-        .page-hero h1 {
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-
-        /* --- 4. ABOUT PAGE HERO SECTION --- */
+        /* About Page Sections (Hero & CEO) */
         .about-hero {
             padding: 80px 0;
             background-color: var(--brand-dark);
@@ -268,7 +193,7 @@
             margin: 0;
         }
 
-        /* --- 5. FLEXIBLE CONTENT SECTIONS (Image + Text Layouts) --- */
+        /* Flexible Content Sections (Image + Text Layouts) */
         .content-section {
             padding: 80px 0;
             background-color: #fff;
@@ -312,7 +237,6 @@
             color: #555;
         }
 
-        /* Quote styling */
         .content-text .quote {
             font-size: 1.2em;
             font-style: italic;
@@ -360,7 +284,6 @@
 
         .why-choose-us-list li::before {
             content: "\f00c";
-            /* Font Awesome Checkmark */
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             color: var(--brand-accent);
@@ -374,6 +297,7 @@
             margin-top: 25px;
         }
 
+        /* SHEQ Section */
         .sheq-section-container {
             padding: 80px 0;
             background-color: #fff;
@@ -433,206 +357,108 @@
             line-height: 1.5;
         }
 
-        @media (max-width: 768px) {
-            .sheq-grid {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .sheq-item {
-                height: auto;
-            }
-
-        }
-
-
-        /* --- 7. GEOGRAPHIC PRESENCE (SVG Map) --- */
-        .geographic-presence-section {
+        /* Overall Banner Container */
+        .partner-banner {
+            background-image: url('images/1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 80px 0;
-            background-color: #fff;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .map-wrapper {
+            color: #e3e1e1;
             position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: 40px auto 0 auto;
-            border: 1px solid #ddd;
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
         }
 
-        .south-africa-map {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .south-africa-map path {
-            fill: #e0e0e0;
-            stroke: #a0a0a0;
-            stroke-width: 0.5;
-        }
-
-        /* Map Markers */
-        .map-marker {
+        .partner-banner::before {
+            content: "";
             position: absolute;
-            width: 18px;
-            height: 18px;
-            background-color: red;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.3);
-            animation: pulse 1.5s infinite;
-            cursor: pointer;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .partner-banner * {
+            z-index: 2;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            color: white;
-            font-size: 10px;
+            flex-wrap: wrap;
+        }
+
+        .banner-text {
+            font-size: 2em;
             font-weight: bold;
-            line-height: 1;
+            text-transform: uppercase;
+            line-height: 1.4;
+            max-width: 60%;
+            margin: 0;
         }
 
-        .map-marker .label {
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            background-color: var(--brand-dark);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            pointer-events: none;
+        .cta-actions {
+            display: flex;
+            align-items: center;
         }
 
-        .map-marker:hover .label {
-            opacity: 1;
-            visibility: visible;
-        }
-
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-            }
-        }
-
-
-        /* --- 8. FOOTER & BACK TO TOP --- */
-        footer {
-            background-color: var(--brand-dark);
-            color: #a0a0a0;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.9em;
-            margin-top: 20px;
-        }
-
-        #backToTopBtn {
-            display: none;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            outline: none;
+        .contact-btn {
             background-color: var(--brand-accent);
-            color: white;
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 22px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s, transform 0.2s;
+            color: #0f1720;
+            text-decoration: none;
+            padding: 15px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            margin-right: 20px;
         }
 
-        #backToTopBtn:hover {
-            background-color: #e66a00;
-            transform: scale(1.05);
+        .contact-btn:hover {
+            background-color: #e65c00;
         }
 
-        /* --- 9. MEDIA QUERIES --- */
-        @media (max-width: 992px) {
-            .content-wrap {
+        .social-icons a {
+            color: #ffffff;
+            font-size: 1.8em;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--brand-accent);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .content-wrap.reverse {
-                flex-direction: column;
+            .banner-text {
+                max-width: 100%;
+                margin-bottom: 30px;
+                font-size: 1.5em;
             }
 
-            .content-text,
-            .content-media {
-                flex: none;
+            .cta-actions {
+                justify-content: center;
                 width: 100%;
             }
-
-            .content-text h2,
-            .section-title {
-                text-align: center;
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            .content-text .quote {
-                text-align: left;
-                margin-left: 0;
-            }
         }
 
-        @media (max-width: 768px) {
-            .main-nav {
-                display: none;
-            }
-
-            .nav-content {
-                justify-content: center;
-            }
-
-            .sheq-grid {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .sheq-item {
-                height: auto;
-            }
-
-            .map-marker {
-                width: 15px;
-                height: 15px;
-                font-size: 8px;
-            }
-
-            .map-marker .label {
-                font-size: 0.7em;
-                bottom: -20px;
-            }
-        }
-
-        /* Footer */
+        /* Footer & Utilities */
         .footer {
-            background-color: #0f1720;
+            background-color: var(--brand-dark);
             color: #ecf0f1;
             padding: 60px 0 20px 0;
         }
@@ -698,10 +524,6 @@
             color: var(--brand-accent);
         }
 
-        .footer-contact a {
-            color: #ecf0f1;
-        }
-
         .footer-socials a {
             display: inline-flex;
             justify-content: center;
@@ -732,6 +554,110 @@
         .footer-bottom p {
             margin: 5px 0;
         }
+
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--brand-accent);
+            color: white;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 22px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #e66a00;
+            transform: scale(1.05);
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+
+            .content-wrap,
+            .content-wrap.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content-text,
+            .content-media {
+                flex: none;
+                width: 100%;
+            }
+
+            .content-text h2,
+            .section-title {
+                text-align: center;
+                border-bottom: 3px solid var(--brand-accent);
+                padding-bottom: 10px;
+                display: inline-block;
+            }
+
+            .content-text .quote {
+                text-align: left;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #navbar {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                background-color: var(--brand-dark);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            #navbar ul {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            #navbar ul li a {
+                padding: 10px 15px;
+            }
+
+            .sheq-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .geo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-col {
+                min-width: unset;
+            }
+
+            .footer-socials {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -751,7 +677,7 @@
                 </div>
 
                 <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">
-                    <i class="fas fa-bars"></i>
+                    ☰
                 </button>
 
                 <nav id="navbar">
@@ -760,10 +686,7 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="service.html">Services</a></li>
                         <li><a href="portfolio.html">Projects</a></li>
-                        <li><a href="index.html#team" data-scroll-to="team">Team</a></li>
-                        <li><a href="index.html#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
                         <li><a href="contact.html">Contact</a></li>
-
                     </ul>
                 </nav>
             </div>
@@ -791,8 +714,6 @@
                 </p>
 
                 <div class="ceo-signature">
-
-
                     <p class="name">Mr. Keith Mbatsane</p>
                     <p class="title">Chief Executive Officer, Gabekile Projects</p>
                 </div>
@@ -912,17 +833,17 @@
         </div>
     </section>
 
-    <section class="content-section geographic-presence-section">
-        <div class="container">
-            <h2 class="section-title">Geographic Presence</h2>
-            <div class="map-wrapper">
-                <svg class="south-africa-map" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid meet">
-                    <path
-                        d="M 400 450 C 380 480 300 490 250 480 C 200 470 150 400 120 350 C 100 300 100 250 150 200 C 200 150 250 100 300 80 C 350 60 400 50 450 70 C 500 90 550 150 580 200 C 590 250 580 300 550 350 C 520 400 450 430 400 450 Z"
-                        fill="#e0e0e0" stroke="#a0a0a0" stroke-width="1"></path>
-                    <path d="M 350 320 C 340 330 350 340 360 335 C 370 330 365 320 350 320 Z" fill="#c0c0c0"
-                        stroke="#808080" stroke-width="0.5"></path>
-                </svg>
+    <section class="partner-banner">
+        <div class="content-wrapper">
+            <h2 class="banner-text">PARTNER WITH US TO EXPERIENCE EXCELLENCE, RELIABILITY, & A COMMITMENT TO A
+                SUSTAINABLE TOMORROW.</h2>
+
+            <div class="cta-actions">
+                <a href="contact.html" class="btn contact-btn">CONTACT US</a>
+                <div class="social-icons">
+                    <a href="[Your LinkedIn Link]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="[Your Instagram Link]" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -935,7 +856,7 @@
                     Our client base includes but not limited to: Government, Private Sector, Industrial and Corporate
                     Clients whom
                     we serve with the same dedication, as we at Gabekile Projects believe there is no job
-                    too big or small. **<span class="motto">“We aim to excel!!!”</span>
+                    too big or small. <span class="motto">“We aim to excel!!!”</span>
                 </p>
                 <div class="footer-socials">
                     <a href="[Your Facebook Link]" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -950,9 +871,9 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="service.html">Our Services</a></li>
                     <li><a href="portfolio.html">Projects</a></li>
-                    <li><a href="#team" data-scroll-to="team">Team</a></li>
-                    <li><a href="#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
-                    <li><a href="#contact" data-scroll-to="contact">Contact Us</a></li>
+                    <li><a href="index.html#team" data-scroll-to="team">Team</a></li>
+                    <li><a href="index.html#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
+                    <li><a href="contact.html" data-scroll-to="contact">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -985,90 +906,113 @@
     </button>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mobile Menu Toggle Logic
+            const menuToggle = document.getElementById('menu-toggle');
+            const navbar = document.getElementById('navbar');
+            const header = document.querySelector('.header');
+
+            if (menuToggle && header) {
+                function toggleMenu() {
+                    header.classList.toggle('menu-open');
+                    const isExpanded = header.classList.contains('menu-open');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
+                }
+
+                menuToggle.addEventListener('click', toggleMenu);
+
+                if (navbar) {
+                    const navLinks = navbar.querySelectorAll('a');
+                    navLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            if (header.classList.contains('menu-open')) {
+                                header.classList.remove('menu-open');
+                                menuToggle.setAttribute('aria-expanded', 'false');
+                            }
+                        });
+                    });
+                }
+            }
 
 
-        // 1. Get references to the elements
-        const menuToggle = document.getElementById('menu-toggle');
-        const navbar = document.getElementById('navbar');
-        const header = document.querySelector('.header'); // Get the header element
+            // Back To Top Button Show/Hide Logic
+            const mybutton = document.getElementById("backToTopBtn");
 
-        // 2. Define the function to run when the button is clicked
-        function toggleMenu() {
-            // Toggle the 'menu-open' class on the header
-            // This class is used in the CSS media query to show the #navbar
-            header.classList.toggle('menu-open');
+            if (mybutton) {
+                // Function to show/hide the button
+                const scrollFunction = () => {
+                    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                        mybutton.style.display = "block";
+                    } else {
+                        mybutton.style.display = "none";
+                    }
+                };
 
-            // Toggle the ARIA attribute for accessibility
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-        }
+                window.addEventListener('scroll', scrollFunction);
+                scrollFunction(); // Run once on load
+            }
 
-        // 3. Attach the event listener to the button
-        menuToggle.addEventListener('click', toggleMenu);
 
-        // Optional: Close the menu when a link is clicked
-        const navLinks = navbar.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                header.classList.remove('menu-open');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            });
+            // Geographic Presence Map Markers (Responsive positioning)
+            const mapWrapper = document.querySelector(".map-wrapper");
+            const svg = document.querySelector(".sa-map");
+
+            if (mapWrapper && svg) {
+                const locations = [
+                    { name: "Gauteng", x: 470, y: 470 },
+                    { name: "Mpumalanga", x: 550, y: 450 },
+                    { name: "Limpopo", x: 500, y: 380 },
+                    { name: "North West", x: 400, y: 500 }
+                ];
+
+                function placeMarkers() {
+                    // Remove old markers for responsive resizing
+                    mapWrapper.querySelectorAll(".map-marker, .marker-label, .connector-line").forEach(el => el.remove());
+
+                    const box = svg.getBoundingClientRect();
+                    const scaleX = box.width / 800; // SVG viewBox is 800 wide
+                    const scaleY = box.height / 800; // SVG viewBox is 800 high
+
+                    locations.forEach(loc => {
+                        const left = loc.x * scaleX;
+                        const top = loc.y * scaleY;
+
+                        // DOT
+                        const marker = document.createElement("div");
+                        marker.classList.add("map-marker");
+                        marker.style.left = left + "px";
+                        marker.style.top = top + "px";
+
+                        // LABEL
+                        const label = document.createElement("div");
+                        label.classList.add("marker-label");
+                        label.style.left = (left + 25) + "px";
+                        label.style.top = top + "px";
+                        label.textContent = loc.name;
+
+                        // CONNECTOR LINE
+                        const line = document.createElement("div");
+                        line.classList.add("connector-line");
+                        line.style.left = left + "px";
+                        line.style.top = top + "px";
+                        line.style.width = "25px";
+
+                        mapWrapper.append(marker, line, label);
+                    });
+                }
+
+                placeMarkers();
+                window.addEventListener("resize", placeMarkers);
+            }
         });
 
-        const mybutton = document.getElementById("backToTopBtn");
-        window.onscroll = () => {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
+        // Top Function (Must remain globally accessible for HTML 'onclick')
         function topFunction() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const mapWrapper = document.querySelector('.map-wrapper');
-            const svgMap = document.querySelector('.south-africa-map');
-
-            const locations = [
-                { name: 'Johannesburg', x: 350, y: 300 }, // Gauteng
-                { name: 'Mpumalanga', x: 420, y: 280 }, // Mpumalanga
-                { name: 'Durban (KZN)', x: 400, y: 370 }, // KwaZulu-Natal (KZN)
-                { name: 'Maseru (Lesotho)', x: 355, y: 325 } // Lesotho
-            ];
-
-            function placeMarkers() {
-                mapWrapper.querySelectorAll('.map-marker').forEach(marker => marker.remove());
-
-                const svgRect = svgMap.getBoundingClientRect();
-                const scaleX = svgRect.width / 600; // 600 is viewBox width
-                const scaleY = svgRect.height / 500; // 500 is viewBox height
-
-                locations.forEach(loc => {
-                    const marker = document.createElement('div');
-                    marker.classList.add('map-marker');
-
-                    marker.style.left = `${loc.x * scaleX}px`;
-                    marker.style.top = `${loc.y * scaleY}px`;
-
-                    marker.innerHTML = `<span class="label">${loc.name}</span>`;
-
-                    mapWrapper.appendChild(marker);
-                });
-            }
-
-            placeMarkers();
-            window.addEventListener('resize', placeMarkers);
-        });
     </script>
 </body>
 
