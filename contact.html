@@ -10,14 +10,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Roboto:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-        <link rel="icon" type="image/png" href="logo/logo.png">
+    <link rel="icon" type="image/png" href="logo/logo.png">
 
     <style>
         :root {
-            --color-dark:#0f1720; /* Reverting to previous dark tone for better contrast */
+            --color-dark: #0f1720;
             --color-accent: #ffb300;
             --color-light-bg: #f8f8f8;
-            --color-muted: #6b7280; /* Used for fixing JS error */
+            --color-muted: #6b7280;
             --color-border: #e5e7eb;
             --color-light-text: #374151;
         }
@@ -35,7 +35,7 @@
             color: white;
             padding: 0.75rem 1rem;
         }
-        
+
         /* Container utility class for max-width on content */
         .container {
             max-width: 1280px;
@@ -105,11 +105,6 @@
             font-weight: 500;
         }
 
-        /* Active feature on contact link removed */
-        /* #navbar-menu li a[href*="contact.html"] {
-            color: var(--color-accent);
-        } */
-
         #navbar-menu li a:hover {
             color: var(--color-accent);
         }
@@ -124,59 +119,66 @@
             padding: 0.5rem;
         }
 
-        /* Mobile Styles - Below 768px (md breakpoint) */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                /* Show on mobile */
-            }
-
-            #navbar {
-                width: 100%;
-                order: 3;
-                /* Push navigation to the bottom */
-            }
-
-            /* Hide menu by default on mobile */
-            #navbar-menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                background-color: rgba(31, 41, 55, 0.95);
-                padding: 1rem 0;
-                margin-top: 0.75rem;
-                border-radius: 0.5rem;
-                gap: 0;
-            }
-
-            #navbar-menu.is-open {
-                display: flex;
-                /* Shown when toggled */
-            }
-
-            #navbar-menu li a {
-                display: block;
-                padding: 0.75rem 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            #navbar-menu li:last-child a {
-                border-bottom: none;
-            }
+        /* Top header  */
+        .top-section-header {
+            background-image: url('images/2.jpg');
+            background-size: cover;
+            background-position: center 25%;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 50px 0;
+            color: #ffffff;
+            text-align: center;
+            z-index: 0;
         }
 
-        /* Top Section Header */
-        .top-section-header {
-            background: var(--color-light-bg);
-            padding: 5rem 1rem 3rem 1rem;
+        .top-section-header.is-visible {
+            opacity: 1;
+        }
+
+        .top-section-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .banner-content-wrapper {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .get-in-touch-heading {
-            font-size: 2.5rem;
-            font-weight: 900;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #e5e1e1;
             font-family: 'Montserrat', sans-serif;
-            color: var(--color-dark);
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .breadcrumb {
+            font-size: 0.90rem;
+            color: #f7f7f7;
+            text-transform: capitalize;
+        }
+
+        .breadcrumb a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
         }
 
         /* Contact Section Specific Styles */
@@ -190,9 +192,8 @@
         }
 
         /* Form Inputs */
-        /* Updated input/textarea selector to target direct children of form */
-        #contactForm > input,
-        #contactForm > textarea {
+        #contactForm>input,
+        #contactForm>textarea {
             width: 100%;
             padding: 1rem;
             margin-bottom: 1.25rem;
@@ -203,8 +204,8 @@
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        #contactForm > input:focus,
-        #contactForm > textarea:focus {
+        #contactForm>input:focus,
+        #contactForm>textarea:focus {
             border-color: var(--color-accent);
             outline: none;
             box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.25);
@@ -228,14 +229,13 @@
             margin-top: 1rem;
         }
 
-        /* New button structure alignment: using .btn and .outline-yellow-btn classes */
         .contact-cta-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 2.5rem;
         }
-        
+
         .form-submit-row {
             display: flex;
             align-items: center;
@@ -246,7 +246,7 @@
             color: var(--color-muted);
             font-size: 0.9rem;
         }
-        
+
         .btn {
             color: var(--color-dark);
             font-weight: 700;
@@ -259,12 +259,11 @@
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn:active {
             transform: translateY(1px);
         }
-        
-        /* Primary/Accent Button Style */
+
         .btn {
             background-color: var(--color-accent);
             border: 2px solid var(--color-accent);
@@ -276,7 +275,6 @@
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
-        /* Outline Button Style */
         .outline-yellow-btn {
             background: transparent;
             border: 2px solid var(--color-accent);
@@ -291,107 +289,209 @@
         }
 
         /* Footer */
-    .footer {
-      background-color: #0f1720;
-      color: #ecf0f1;
-      padding: 60px 0 20px 0;
-    }
+        .footer {
+            background-color: #0f1720;
+            color: #ecf0f1;
+            padding: 60px 0 20px 0;
+        }
 
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      padding-bottom: 30px;
-    }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            padding-bottom: 30px;
+        }
 
-    .footer-col {
-      flex: 1;
-      min-width: 250px;
-    }
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
 
-    .footer-col h3,
-    .footer-col h4 {
-      color: var(--color-accent);
-      margin-bottom: 20px;
-      font-size: 1.2em;
-    }
+        .footer-col h3,
+        .footer-col h4 {
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
 
-    .footer-col p {
-      color: #bdc3c7;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
+        .footer-col p {
+            color: #bdc3c7;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
 
-    .footer-col p .motto {
-      font-weight: bold;
-      color: #fff;
-      font-style: italic;
-    }
+        .footer-col p .motto {
+            font-weight: bold;
+            color: #fff;
+            font-style: italic;
+        }
 
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-    }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    .footer-col a {
-      color: #ecf0f1;
-      text-decoration: none;
-      transition: color 0.3s;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
+        .footer-col a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
 
-    .footer-col a:hover {
-      color: var(--color-accent);
-    }
+        .footer-col a:hover {
+            color: var(--color-accent);
+        }
 
-    .footer-contact li {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 15px;
-    }
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
 
-    .footer-contact i {
-      margin-right: 10px;
-      font-size: 1.1em;
-      padding-top: 3px;
-      color: var(--color-accent);
-    }
+        .footer-contact i {
+            margin-right: 10px;
+            font-size: 1.1em;
+            padding-top: 3px;
+            color: var(--color-accent);
+        }
 
-    .footer-contact a {
-      color: #ecf0f1;
-    }
+        .footer-contact a {
+            color: #ecf0f1;
+        }
 
-    .footer-socials a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 35px;
-      height: 35px;
-      background-color: #3e5063;
-      border-radius: 50%;
-      margin-right: 10px;
-      color: #ecf0f1;
-      font-size: 1.1em;
-      transition: background-color 0.3s, color 0.3s;
-    }
+        .footer-socials a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            background-color: #3e5063;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: #ecf0f1;
+            font-size: 1.1em;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-    .footer-socials a:hover {
-      background-color: var(--color-accent);
-      color: var(--color-dark);
-    }
+        .footer-socials a:hover {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+        }
 
-    .footer-bottom {
-      border-top: 1px solid #3e5063;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #bdc3c7;
-    }
+        .footer-bottom {
+            border-top: 1px solid #3e5063;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #bdc3c7;
+        }
 
-    .footer-bottom p {
-      margin: 5px 0;
-    }
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        /* Mobile Styles - Below 768px (md breakpoint) */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            #navbar {
+                width: 100%;
+                order: 3;
+            }
+
+            #navbar-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background-color: rgba(31, 41, 55, 0.95);
+                padding: 1rem 0;
+                margin-top: 0.75rem;
+                border-radius: 0.5rem;
+                gap: 0;
+            }
+
+            #navbar-menu.is-open {
+                display: flex;
+            }
+
+            #navbar-menu li a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            #navbar-menu li:last-child a {
+                border-bottom: none;
+            }
+
+            /* Mobile fixes for contact page layout */
+            .main-contact-content {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
+            }
+
+            .form-submit-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            /* Mobile fixes for footer */
+            .footer-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-col {
+                min-width: 100%;
+                text-align: center;
+            }
+
+            .footer-col h3,
+            .footer-col h4 {
+                margin-bottom: 10px;
+            }
+
+            .footer-col p {
+                margin-bottom: 10px;
+            }
+
+            .footer-col a {
+                margin-bottom: 5px;
+            }
+
+            .footer-contact {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-contact li {
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .footer-socials {
+                text-align: center;
+            }
+
+            /* Adjust Banner Text Size for Small Screens */
+            .get-in-touch-heading {
+                font-size: 2.5rem;
+            }
+
+            .top-section-header {
+                padding: 40px 0;
+            }
+        }
     </style>
 </head>
 
@@ -412,7 +512,7 @@
                 </div>
 
                 <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">
-                    <i class="fas fa-bars"></i> 
+                    <i class="fas fa-bars"></i>
                 </button>
 
                 <nav id="navbar">
@@ -421,10 +521,8 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="service.html">Services</a></li>
                         <li><a href="portfolio.html">Projects</a></li>
-                        <li><a href="index.html#team" data-scroll-to="team">Team</a></li>
-                        <li><a href="index.html#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        
+
                     </ul>
                 </nav>
             </div>
@@ -432,10 +530,15 @@
     </header>
 
     <!-- Top Heading Section -->
-    <section class="top-section-header">
-        <div class="container max-w-7xl">
-            <h1 class="get-in-touch-heading">Get In Touch</h1>
-            <p class="text-lg mt-2 text-gray-700">Contact us for quotes, partnerships or general enquiries.</p>
+    <section class="top-section-header contact-banner">
+        <div class="container banner-content-wrapper">
+            <h1 class="get-in-touch-heading">CONTACT</h1>
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Contact Us</span>
+            </div>
         </div>
     </section>
 
@@ -443,14 +546,11 @@
     <main class="px-4 sm:px-6 lg:px-8">
         <div class="contact-card max-w-7xl">
 
-            <!-- Grid Wrapper for Contact Info and Form (2 columns on large screen, 1 on mobile) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-                <!-- Left Column: Contact Details & Buttons -->
                 <div class="contact-info-column p-4">
                     <h2 class="text-2xl font-bold font-montserrat">Contact Details</h2>
 
-                    <!-- Address Block -->
                     <div class="space-y-4 mt-6 text-gray-700">
                         <p class="font-medium">
                             <i class="fas fa-map-marker-alt text-lg text-amber-500 w-6"></i>
@@ -472,14 +572,11 @@
                         </p>
                     </div>
 
-                    <!-- Affiliation Numbers -->
                     <h3 class="text-xl font-bold font-montserrat mt-8 mb-2 text-gray-800">Affiliation Numbers</h3>
                     <p class="affiliation-numbers">
                         MAA0765334 — 4000006057 — 10240842 — 82783633425 — 990001490827
                     </p>
 
-                    <!-- CTA Buttons -->
-                    <!-- Used new button classes: .btn and .outline-yellow-btn -->
                     <div class="contact-cta-buttons">
                         <a class="btn" href="tel:+27795157458">Call Us Now</a>
                         <a class="btn outline-yellow-btn" href="pdf/GABEKILE PROJECTS BUSINESS PROFILE.pdf"
@@ -487,9 +584,7 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Contact Form -->
                 <div class="contact-form-column p-4 lg:border-l border-gray-100">
-                    <!-- Added FormSpree URL placeholder - REMEMBER TO REPLACE THIS WITH YOUR OWN FORM ID -->
                     <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID_CODE" method="POST">
                         <input type="text" id="name" name="name" placeholder="Your name" required
                             aria-label="Your name" />
@@ -501,7 +596,6 @@
                             aria-label="Your message"></textarea>
                         <div class="form-submit-row">
                             <button type="submit" class="btn">Send Message</button>
-                            <!-- Message will be displayed here after form submission -->
                             <div id="formMsg" class="form-message"></div>
                         </div>
                     </form>
@@ -521,52 +615,56 @@
 
     <!-- Footer Section -->
     <footer class="footer">
-  <div class="container footer-container">
-    <div class="footer-col">
-      <h3>Gabekile Projects</h3>
-      <p>
-        Our client base includes but not limited to: Government, Private Sector, Industrial and Corporate Clients whom
-        we serve with the same dedication, as we at Gabekile Projects believe there is no job
-        too big or small. **<span class="motto">“We aim to excel!!!”</span>
-      </p>
-      <div class="footer-socials">
-        <a href="[Your Facebook Link]" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="[Your LinkedIn Link]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="[Your Instagram Link]" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      </div>
-    </div>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Gabekile Projects</h3>
+                <p>
+                    Our client base includes but not limited to: Government, Private Sector, Industrial and Corporate
+                    Clients whom
+                    we serve with the same dedication, as we at Gabekile Projects believe there is no job
+                    too big or small. <span class="motto">“We aim to excel!!!”</span>
+                </p>
+                <div class="footer-socials">
+                    <a href="[Your Facebook Link]" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="[Your LinkedIn Link]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="[Your Instagram Link]" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
 
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="service.html">Our Services</a></li>
-        <li><a href="portfolio.html">Projects</a></li>
-        <li><a href="#team" data-scroll-to="team">Team</a></li>
-        <li><a href="#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
-        <li><a href="#contact" data-scroll-to="contact">Contact Us</a></li>
-      </ul>
-    </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="service.html">Our Services</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="index.html#team" data-scroll-to="team">Team</a></li>
+                    <li><a href="index.html#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
+                    <li><a href="contact.html" data-scroll-to="contact">Contact Us</a></li>
+                </ul>
+            </div>
 
-    <div class="footer-col">
-      <h4>Contact Info</h4>
-      <ul class="footer-contact">
-        <li><i class="fa-solid fa-location-dot"></i> <a href="https://www.google.com/maps/place/White+River,+1240/">30
-            Outenique, White River</a>
-        </li>
-        <li><i class="fa-solid fa-phone"></i> <a href="tel:+27795157458">+27 79 515 7458</a></li>
-        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@gabekilepro.co.za">info@gabekilepro.co.za</a></li>
-      </ul>
-    </div>
-  </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> <a
+                            href="https://www.google.com/maps/place/White+River,+1240/">30
+                            Outenique, White River</a>
+                    </li>
+                    <li><i class="fa-solid fa-phone"></i> <a href="tel:+27795157458">+27 79 515 7458</a></li>
+                    <li><i class="fa-solid fa-envelope"></i> <a
+                            href="mailto:info@gabekilepro.co.za">info@gabekilepro.co.za</a></li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="footer-bottom">
-    <p class="footer-legal">
-      Company Reg: 2018/497520/07 | VAT: 4690305273
-    </p>
-    <p>© 2025 Gabekile Projects (Pty) Ltd. All Rights Reserved. | Website designed by Gabekile Projects Web Team.</p>
-  </div>
-</footer>
+        <div class="footer-bottom">
+            <p class="footer-legal">
+                Company Reg: 2018/497520/07 | VAT: 4690305273
+            </p>
+            <p>© 2025 Gabekile Projects (Pty) Ltd. All Rights Reserved. | Website designed by Gabekile Projects Web
+                Team.</p>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -579,32 +677,32 @@
                 menuToggle.addEventListener('click', function () {
                     // Toggle the 'is-open' class for visibility
                     navMenu.classList.toggle('is-open');
-                    
+
                     // Toggle aria-expanded attribute for accessibility
                     const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     this.setAttribute('aria-expanded', !isExpanded);
                 });
             }
-            
+
             // Optional: Form Submission Logic (using a FormSpree-like service)
             const form = document.getElementById('contactForm');
             const formMsg = document.getElementById('formMsg');
-            
+
             if (form && formMsg) {
                 form.addEventListener('submit', async function (e) {
                     e.preventDefault();
-                    
+
                     const formAction = form.getAttribute('action');
                     if (formAction.includes('YOUR_FORM_ID_CODE')) {
                         formMsg.textContent = "Please update the 'action' attribute in the HTML form with your actual FormSpree endpoint to enable submissions.";
                         formMsg.style.color = 'red';
                         return;
                     }
-                    
+
                     formMsg.textContent = 'Sending message...';
                     // FIX: Replaced CSS var('--color-muted') with its direct hex value (#6b7280) 
                     // as 'var()' is not valid JavaScript syntax for setting style properties.
-                    formMsg.style.color = '#6b7280'; 
+                    formMsg.style.color = '#6b7280';
 
                     try {
                         const response = await fetch(formAction, {
