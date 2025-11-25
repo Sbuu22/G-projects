@@ -22,7 +22,11 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding-top: 0;
-            background-color: #f4f4f4;
+            
+            background-image: url('images/pexels-johnnymckane-237950.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #333;
         }
 
@@ -41,7 +45,7 @@
         }
 
 
-        /* --- HEADER & TOP BAR  --- */
+        /* --- HEADER & TOP BAR --- */
 
         .main-header {
             position: relative;
@@ -57,7 +61,7 @@
             height: 70px;
         }
 
-        /* --- BRAND & LOGO  --- */
+        /* --- BRAND & LOGO --- */
 
         .brand {
             display: flex;
@@ -99,7 +103,7 @@
         }
 
 
-        /* ---  NAVIGATION MENU --- */
+        /* --- NAVIGATION MENU --- */
 
         #navbar-menu {
             list-style: none;
@@ -178,13 +182,10 @@
             background-color: var(--brand-accent);
             color: white;
             cursor: pointer;
-            /* 4. BIGGER BUTTON SIZE */
             width: 50px;
             height: 50px;
             padding: 0;
-            /* Remove default padding since width/height are set */
             border-radius: 50%;
-            /* BIGGER ARROW ICON */
             font-size: 22px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: opacity 0.3s, background-color 0.3s;
@@ -218,13 +219,13 @@
 
         .services-hero h1 {
             font-size: 2.8em;
-            color: white;
+            color:#ccc;
             margin-bottom: 20px;
         }
 
         .hero-text {
             font-size: 1.1em;
-            color: #ccc;
+            color: #bdc3c7;
             line-height: 1.6;
             margin-bottom: 25px;
         }
@@ -237,10 +238,11 @@
         }
 
 
-        /* --- B. TRENCON-STYLE DYNAMIC SERVICE LIST CSS (Unchanged) --- */
         .services-section {
             padding: 60px 0;
-            background-color: #fff;
+            /* Background remains white for contrast against the body image */
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Added slight opacity to see background image */
         }
 
         .service-item {
@@ -547,7 +549,7 @@
                     <div class="service-image-placeholder building-bg"></div>
                 </div>
                 <div class="service-content">
-                    <h3>General Building</h3>
+                    <h3>General Building </h3>
                     <p>
                         We specialize in expert construction and maintenance across all sectors, including residential,
                         commercial, and industrial buildings. Our projects are delivered with guaranteed quality,
