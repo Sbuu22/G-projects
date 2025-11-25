@@ -32,7 +32,6 @@ BASE & VARIABLES
         --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
         --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.2);
         --radius: 0.25rem;
-        /* Standardizing to rem */
         --transition-speed: 0.3s;
 
         /* Typography */
@@ -40,23 +39,25 @@ BASE & VARIABLES
     }
 
     /* ========================================================
-RESET & BASE STYLES
-======================================================== */
+       RESET & BASE STYLES
+       ======================================================== */
     *,
     *::before,
     *::after {
         box-sizing: border-box;
-        /* Modern box model */
     }
 
     body {
         font-family: var(--font-inter);
         color: var(--text-color);
         margin: 0;
-        background-color: var(--bg-light);
         line-height: 1.6;
         scroll-behavior: smooth;
-        /* For smooth scrolling to anchors/top */
+        background-image: url('images/pexels-apasaric-1437493.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-blend-mode: multiply;
     }
 
     a {
@@ -69,7 +70,6 @@ RESET & BASE STYLES
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1.25rem;
-        /* 20px */
     }
 
     .no-scroll {
@@ -80,36 +80,16 @@ RESET & BASE STYLES
     .section-title {
         text-align: center;
         font-size: 2.5rem;
-        /* Use rem */
         color: var(--brand-primary);
         margin-bottom: 0.625rem;
-        /* 10px */
         font-weight: 800;
     }
 
     .section-intro {
         text-align: center;
         font-size: 1.125rem;
-        /* 18px */
         color: #666;
         margin-bottom: 2.5rem;
-        /* 40px */
-    }
-
-    /* ========================================================
-WATERMARK BACKGROUND
-======================================================== */
-    #watermark-bg {
-        position: fixed;
-        inset: 0;
-        /* Shorthand for top, right, bottom, left: 0; */
-        z-index: -1;
-        background-color: var(--bg-light);
-        background-image: url('logo/logo.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 80vh;
-        opacity: 0.05;
     }
 
     /* ========================================================
@@ -119,20 +99,15 @@ HEADER & NAVIGATION
         background-color: var(--brand-dark);
         color: white;
         padding-top: 1.25rem;
-        /* 20px */
         transition: all var(--transition-speed) ease;
         z-index: 100;
-        /* Ensure header is always above content */
-        position: sticky;
+        position: relative;
         top: 0;
     }
 
-    /* Class applied by JavaScript when scrolled */
     header.scrolled {
         padding-block: 0.3125rem;
-        /* 5px (shorthand for padding-top and padding-bottom) */
         box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.3);
-        /* 2px 10px */
     }
 
     .topbar {
@@ -140,29 +115,24 @@ HEADER & NAVIGATION
         justify-content: space-between;
         align-items: center;
         padding-block: 0.625rem;
-        /* 10px */
     }
 
     .brand {
         display: flex;
         align-items: center;
         gap: 0.625rem;
-        /* 10px */
         flex-shrink: 0;
     }
 
     .logo {
-        width: 2.5rem;
-        /* 40px */
-        height: 2.5rem;
+        width: 2.4rem;
+        height: 2.4rem;
         background-color: var(--brand-yellow);
         color: var(--brand-dark);
         font-weight: 800;
         font-size: 1.5rem;
-        /* 24px */
         border-radius: var(--radius);
         display: grid;
-        /* Use grid for perfect centering */
         place-content: center;
         text-decoration: none;
         transition: all var(--transition-speed) ease;
@@ -175,21 +145,17 @@ HEADER & NAVIGATION
     .brand-title {
         font-weight: 800;
         font-size: 1.125rem;
-        /* 18px */
         transition: font-size var(--transition-speed) ease;
     }
 
     .brand-tagline {
         color: rgba(255, 255, 255, 0.8);
         font-size: 0.8125rem;
-        /* 13px */
         transition: opacity var(--transition-speed) ease;
     }
 
-    /* Scrolled Header Adjustments */
     header.scrolled .brand-title {
         font-size: 1rem;
-        /* 16px */
     }
 
     header.scrolled .brand-tagline {
@@ -201,10 +167,8 @@ HEADER & NAVIGATION
 
     header.scrolled .logo {
         width: 1.875rem;
-        /* 30px */
         height: 1.875rem;
         font-size: 1.125rem;
-        /* 18px */
     }
 
     /* Navigation Menu */
@@ -212,7 +176,6 @@ HEADER & NAVIGATION
         list-style: none;
         display: flex;
         gap: 1.25rem;
-        /* 20px */
         padding: 0;
         margin: 0;
     }
@@ -220,7 +183,6 @@ HEADER & NAVIGATION
     #navbar a {
         color: white;
         padding-block: 0.3125rem;
-        /* 5px */
         transition: color var(--transition-speed);
         display: inline-block;
     }
@@ -248,10 +210,8 @@ FEATURED PROJECT BANNER
         background-position: center;
         background-attachment: scroll;
         height: 21.875rem;
-        /* 350px */
         border-radius: var(--radius);
         margin-bottom: 3.125rem;
-        /* 50px */
         position: relative;
         overflow: hidden;
         box-shadow: var(--shadow-lg);
@@ -260,14 +220,11 @@ FEATURED PROJECT BANNER
     .featured-content {
         position: absolute;
         inset: 0;
-        /* Cover the whole banner */
-        /* Gradient overlay for text readability (adjusted values for cleaner look) */
         background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         padding: 2.5rem;
-        /* 40px */
         color: white;
     }
 
@@ -288,7 +245,6 @@ FEATURED PROJECT BANNER
 
     .featured-tag {
         align-self: flex-start;
-        /* Keeps the tag from stretching */
         background-color: var(--brand-accent);
         color: var(--brand-primary);
         padding: 0.3125rem 0.625rem;
@@ -323,17 +279,13 @@ PORTFOLIO MAIN SECTION
 ======================================================== */
     #portfolio-section {
         padding-block: 5rem;
-        /* 80px */
     }
 
-    /* Filter and Search container */
     .portfolio-controls {
         display: flex;
         flex-direction: column;
         gap: 1.25rem;
-        /* 20px */
         margin-bottom: 3.125rem;
-        /* 50px */
         align-items: center;
     }
 
@@ -341,7 +293,6 @@ PORTFOLIO MAIN SECTION
         width: 100%;
         max-width: 400px;
         padding: 0.75rem 1.25rem;
-        /* 12px 20px */
         border: 2px solid var(--text-light);
         border-radius: var(--radius);
         font-size: 1rem;
@@ -367,9 +318,7 @@ PORTFOLIO MAIN SECTION
         border: 2px solid var(--text-light);
         color: var(--text-color);
         padding: 0.625rem 1.25rem;
-        /* 10px 20px */
         margin: 0.3125rem;
-        /* 5px */
         border-radius: var(--radius);
         cursor: pointer;
         font-weight: 600;
@@ -394,7 +343,6 @@ PORTFOLIO MAIN SECTION
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.25rem;
-        /* 20px */
     }
 
     .project-item {
@@ -405,13 +353,11 @@ PORTFOLIO MAIN SECTION
         cursor: pointer;
         border: 1px solid #eee;
         background-color: white;
-        /* Ensures consistent background */
     }
 
     .project-item img {
         width: 100%;
         height: 17.5rem;
-        /* 280px */
         object-fit: cover;
         display: block;
         transition: transform 0.4s ease, opacity 0.4s ease;
@@ -426,10 +372,8 @@ PORTFOLIO MAIN SECTION
         background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
         color: white;
         padding: 1.25rem;
-        /* 20px */
         transition: padding 0.4s ease, background 0.4s ease;
         min-height: 5rem;
-        /* 80px */
         display: flex;
         align-items: flex-end;
     }
@@ -442,16 +386,13 @@ PORTFOLIO MAIN SECTION
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
         border-bottom: 2px solid var(--brand-accent);
         padding-bottom: 0.3125rem;
-        /* 5px */
         transition: border-color 0.4s ease;
     }
 
     .project-details p {
-        /* Hide all secondary text/description elements */
         display: none !important;
     }
 
-    /* Hover effects */
     .project-item:hover img {
         transform: scale(1.03);
         opacity: 0.95;
@@ -459,7 +400,6 @@ PORTFOLIO MAIN SECTION
 
     .project-item:hover .project-details {
         padding-bottom: 1.5625rem;
-        /* 25px */
     }
 
     .project-item:hover .project-details h3 {
@@ -467,16 +407,13 @@ PORTFOLIO MAIN SECTION
     }
 
 
-    /* ========================================================
-MODAL STYLING (Project Detail View)
-======================================================== */
+    /* MODAL STYLING */
     .modal {
         display: none;
         position: fixed;
         inset: 0;
         z-index: 1000;
         overflow-y: auto;
-        /* Allow scrolling on the modal container itself */
         background-color: rgba(0, 0, 0, 0.85);
         opacity: 0;
         transition: opacity var(--transition-speed) ease;
@@ -484,7 +421,6 @@ MODAL STYLING (Project Detail View)
 
     .modal.is-open {
         display: flex;
-        /* Use flex to easily center content */
         align-items: center;
         justify-content: center;
         opacity: 1;
@@ -493,21 +429,17 @@ MODAL STYLING (Project Detail View)
     .modal-content {
         background-color: var(--bg-light);
         margin: 3vh auto;
-        /* 3% margin top/bottom, auto side */
         padding: 1.875rem 2.5rem;
-        /* 30px 40px */
         border-radius: var(--radius);
         width: 95%;
         max-width: 1000px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         position: relative;
         transform: scale(0.95);
-        /* Slightly less dramatic scale */
         transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
         opacity: 0;
         max-height: 94vh;
         overflow-y: auto;
-        /* Important: content scrolls inside the modal */
     }
 
     .modal.is-open .modal-content {
@@ -521,9 +453,7 @@ MODAL STYLING (Project Detail View)
         margin-top: 0;
         border-bottom: 3px solid var(--brand-accent);
         padding-bottom: 0.625rem;
-        /* 10px */
         margin-bottom: 1.5625rem;
-        /* 25px */
         font-weight: 700;
     }
 
@@ -531,11 +461,8 @@ MODAL STYLING (Project Detail View)
         color: var(--brand-primary);
         position: absolute;
         top: 0.9375rem;
-        /* 15px */
         right: 1.5625rem;
-        /* 25px */
         font-size: 1.875rem;
-        /* 30px */
         font-weight: 300;
         cursor: pointer;
         transition: color 0.2s, transform 0.2s;
@@ -554,7 +481,6 @@ MODAL STYLING (Project Detail View)
     /* Gallery & Media Styles */
     .modal-media-wrapper {
         margin-bottom: 1.25rem;
-        /* 20px */
     }
 
     .modal-main-image,
@@ -562,7 +488,6 @@ MODAL STYLING (Project Detail View)
         width: 100%;
         height: auto;
         max-height: 70vh;
-        /* Controlled max height */
         object-fit: contain;
         border-radius: var(--radius);
         margin-bottom: 1.25rem;
@@ -578,28 +503,21 @@ MODAL STYLING (Project Detail View)
     .thumbnail-container {
         display: flex;
         gap: 0.625rem;
-        /* 10px */
         overflow-x: auto;
         padding-bottom: 0.625rem;
         margin-bottom: 1.875rem;
-        /* 30px */
         justify-content: center;
         -ms-overflow-style: none;
-        /* IE and Edge */
         scrollbar-width: none;
-        /* Firefox */
     }
 
     .thumbnail-container::-webkit-scrollbar {
         display: none;
-        /* Chrome, Safari, Opera */
     }
 
     .thumbnail-container img {
         width: 5rem;
-        /* 80px */
         height: 3.75rem;
-        /* 60px */
         object-fit: cover;
         border-radius: var(--radius);
         cursor: pointer;
@@ -647,15 +565,12 @@ FLOATING ACTION BUTTONS
     /* Back To Top Button */
     #backToTopBtn {
         display: none;
-        /* Hidden by default, JS controls display */
         place-content: center;
         position: fixed;
         bottom: 1.5625rem;
-        /* 25px */
         right: 1.5625rem;
         z-index: 99;
         width: 3.125rem;
-        /* 50px */
         height: 3.125rem;
         background-color: var(--brand-primary);
         color: white;
@@ -665,14 +580,12 @@ FLOATING ACTION BUTTONS
         outline: none;
         box-shadow: var(--shadow-sm);
         font-size: 1.25rem;
-        /* 20px */
         transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
         opacity: 0;
     }
 
     #backToTopBtn.show {
         display: grid;
-        /* Use grid when shown */
         opacity: 1;
     }
 
@@ -685,21 +598,18 @@ FLOATING ACTION BUTTONS
     #contactUsBtn {
         position: fixed;
         bottom: 5.625rem;
-        /* 90px */
         right: 1.5625rem;
         z-index: 99;
         background-color: var(--brand-primary);
         color: white;
         text-decoration: none;
         padding: 0.75rem 1.125rem;
-        /* 12px 18px */
         border-radius: 50px;
         font-weight: 600;
         font-size: 1rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        /* 8px */
         box-shadow: var(--shadow-sm);
         transition: all var(--transition-speed);
         opacity: 0.85;
@@ -725,14 +635,11 @@ RESPONSIVE DESIGN
         /* Featured Banner */
         .featured-banner {
             height: 15.625rem;
-            /* 250px */
             margin-bottom: 1.875rem;
-            /* 30px */
         }
 
         .featured-content {
             padding: 1.25rem;
-            /* 20px */
         }
 
         .featured-content h2 {
@@ -746,14 +653,11 @@ RESPONSIVE DESIGN
 
         .project-item img {
             height: 15rem;
-            /* Adjust height for smaller screens */
         }
 
         .project-details {
             min-height: 3.75rem;
-            /* 60px */
             padding: 0.9375rem;
-            /* 15px */
         }
 
         .project-details h3 {
@@ -762,12 +666,10 @@ RESPONSIVE DESIGN
 
         .portfolio-filters {
             margin-bottom: 1.875rem;
-            /* 30px */
         }
 
         .filter-btn {
             padding: 0.5rem 0.9375rem;
-            /* 8px 15px */
             font-size: 0.9rem;
         }
 
@@ -775,9 +677,8 @@ RESPONSIVE DESIGN
             max-width: 100%;
         }
 
-        /* Navigation (Mobile menu toggle logic needed in JS/HTML) */
+        /* Navigation */
         #navbar ul {
-            /* This hides the desktop menu on mobile */
             display: none;
         }
 
@@ -785,7 +686,6 @@ RESPONSIVE DESIGN
         .modal-content {
             margin: 0;
             padding: 1.25rem;
-            /* 20px */
             width: 100%;
             max-height: 100vh;
             border-radius: 0;
@@ -798,129 +698,122 @@ RESPONSIVE DESIGN
         /* Floating Buttons */
         #backToTopBtn {
             width: 2.8125rem;
-            /* 45px */
             height: 2.8125rem;
             bottom: 1.25rem;
-            /* 20px */
             right: 1.25rem;
             font-size: 1.125rem;
-            /* 18px */
         }
 
         #contactUsBtn {
             bottom: 4.6875rem;
-            /* 75px */
             right: 1.25rem;
-            /* 20px */
             padding: 0.625rem 0.9375rem;
             font-size: 0.9rem;
         }
     }
 
-     /* Footer */
+    /* Footer */
     .footer {
-      background-color: #0f1720;
-      color: #ecf0f1;
-      padding: 60px 0 20px 0;
+        background-color: #0f1720;
+        color: #ecf0f1;
+        padding: 60px 0 20px 0;
     }
 
     .footer-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      padding-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        padding-bottom: 30px;
     }
 
     .footer-col {
-      flex: 1;
-      min-width: 250px;
+        flex: 1;
+        min-width: 250px;
     }
 
     .footer-col h3,
     .footer-col h4 {
-      color: var(--brand-yellow);
-      margin-bottom: 20px;
-      font-size: 1.2em;
+        color: var(--brand-yellow);
+        margin-bottom: 20px;
+        font-size: 1.2em;
     }
 
     .footer-col p {
-      color: #bdc3c7;
-      margin-bottom: 15px;
-      line-height: 1.6;
+        color: #bdc3c7;
+        margin-bottom: 15px;
+        line-height: 1.6;
     }
 
     .footer-col p .motto {
-      font-weight: bold;
-      color: #fff;
-      font-style: italic;
+        font-weight: bold;
+        color: #fff;
+        font-style: italic;
     }
 
     .footer-col ul {
-      list-style: none;
-      padding: 0;
+        list-style: none;
+        padding: 0;
     }
 
     .footer-col a {
-      color: #ecf0f1;
-      text-decoration: none;
-      transition: color 0.3s;
-      display: inline-block;
-      margin-bottom: 8px;
+        color: #ecf0f1;
+        text-decoration: none;
+        transition: color 0.3s;
+        display: inline-block;
+        margin-bottom: 8px;
     }
 
     .footer-col a:hover {
-      color: var(--brand-yellow);
+        color: var(--brand-yellow);
     }
 
     .footer-contact li {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
     }
 
     .footer-contact i {
-      margin-right: 10px;
-      font-size: 1.1em;
-      padding-top: 3px;
-      color: var(--brand-yellow);
+        margin-right: 10px;
+        font-size: 1.1em;
+        padding-top: 3px;
+        color: var(--brand-yellow);
     }
 
     .footer-contact a {
-      color: #ecf0f1;
+        color: #ecf0f1;
     }
 
     .footer-socials a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 35px;
-      height: 35px;
-      background-color: #3e5063;
-      border-radius: 50%;
-      margin-right: 10px;
-      color: #ecf0f1;
-      font-size: 1.1em;
-      transition: background-color 0.3s, color 0.3s;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        background-color: #3e5063;
+        border-radius: 50%;
+        margin-right: 10px;
+        color: #ecf0f1;
+        font-size: 1.1em;
+        transition: background-color 0.3s, color 0.3s;
     }
 
     .footer-socials a:hover {
-      background-color: var(--brand-yellow);
-      color: var(--brand-dark);
+        background-color: var(--brand-yellow);
+        color: var(--brand-dark);
     }
 
     .footer-bottom {
-      border-top: 1px solid #3e5063;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #bdc3c7;
+        border-top: 1px solid #3e5063;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #bdc3c7;
     }
 
     .footer-bottom p {
-      margin: 5px 0;
+        margin: 5px 0;
     }
-
-    
 </style>
 
 </head>
@@ -953,8 +846,6 @@ RESPONSIVE DESIGN
                         <li><a href="about.html">About</a></li>
                         <li><a href="service.html">Services</a></li>
                         <li><a href="portfolio.html">Projects</a></li>
-                        <li><a href="index.html#team">Team</a></li>
-                        <li><a href="index.html#affiliation">Affiliations</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -1141,61 +1032,65 @@ RESPONSIVE DESIGN
     </div>
 
     <button id="backToTopBtn" title="Go to top" aria-label="Back to top">
-       <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <a id="contactUsBtn" href="contact.html" title="Contact Us for a Quote">
         <i class="fas fa-headset"></i> Contact Us
     </a>
 
-     <!-- Footer Section -->
+    <!-- Footer Section -->
     <footer class="footer">
-  <div class="container footer-container">
-    <div class="footer-col">
-      <h3>Gabekile Projects</h3>
-      <p>
-        Our client base includes but not limited to: Government, Private Sector, Industrial and Corporate Clients whom
-        we serve with the same dedication, as we at Gabekile Projects believe there is no job
-        too big or small. **<span class="motto">“We aim to excel!!!”</span>
-      </p>
-      <div class="footer-socials">
-        <a href="[Your Facebook Link]" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="[Your LinkedIn Link]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="[Your Instagram Link]" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      </div>
-    </div>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Gabekile Projects</h3>
+                <p>
+                    Our client base includes but not limited to: Government, Private Sector, Industrial and Corporate
+                    Clients whom
+                    we serve with the same dedication, as we at Gabekile Projects believe there is no job
+                    too big or small. <span class="motto">“We aim to excel!!!”</span>
+                </p>
+                <div class="footer-socials">
+                    <a href="[Your Facebook Link]" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="[Your LinkedIn Link]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="[Your Instagram Link]" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
 
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="service.html">Our Services</a></li>
-        <li><a href="portfolio.html">Projects</a></li>
-        <li><a href="#team" data-scroll-to="team">Team</a></li>
-        <li><a href="#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
-        <li><a href="#contact" data-scroll-to="contact">Contact Us</a></li>
-      </ul>
-    </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="service.html">Our Services</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="index.html#team" data-scroll-to="team">Team</a></li>
+                    <li><a href="index.html#affiliation" data-scroll-to="affiliation">Affiliations</a></li>
+                    <li><a href="contact.html" data-scroll-to="contact">Contact Us</a></li>
+                </ul>
+            </div>
 
-    <div class="footer-col">
-      <h4>Contact Info</h4>
-      <ul class="footer-contact">
-        <li><i class="fa-solid fa-location-dot"></i> <a href="https://www.google.com/maps/place/White+River,+1240/">30
-            Outenique, White River</a>
-        </li>
-        <li><i class="fa-solid fa-phone"></i> <a href="tel:+27795157458">+27 79 515 7458</a></li>
-        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@gabekilepro.co.za">info@gabekilepro.co.za</a></li>
-      </ul>
-    </div>
-  </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> <a
+                            href="https://www.google.com/maps/place/White+River,+1240/">30
+                            Outenique, White River</a>
+                    </li>
+                    <li><i class="fa-solid fa-phone"></i> <a href="tel:+27795157458">+27 79 515 7458</a></li>
+                    <li><i class="fa-solid fa-envelope"></i> <a
+                            href="mailto:info@gabekilepro.co.za">info@gabekilepro.co.za</a></li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="footer-bottom">
-    <p class="footer-legal">
-      Company Reg: 2018/497520/07 | VAT: 4690305273
-    </p>
-    <p>© 2025 Gabekile Projects (Pty) Ltd. All Rights Reserved. | Website designed by Gabekile Projects Web Team.</p>
-  </div>
-</footer>
+        <div class="footer-bottom">
+            <p class="footer-legal">
+                Company Reg: 2018/497520/07 | VAT: 4690305273
+            </p>
+            <p>© 2025 Gabekile Projects (Pty) Ltd. All Rights Reserved. | Website designed by Gabekile Projects Web
+                Team.</p>
+        </div>
+    </footer>
 
 </body>
 
@@ -1617,16 +1512,7 @@ RESPONSIVE DESIGN
 
         // --- Event Handlers ---
 
-        // Scroll Logic (Header shrink & Back to Top visibility)
-        const handleScroll = () => {
-            const scrollY = window.scrollY || document.documentElement.scrollTop;
-
-            header.classList.toggle('scrolled', scrollY > 50);
-            backToTopBtn.classList.toggle('show', scrollY > SCROLL_THRESHOLD);
-        };
-        window.addEventListener('scroll', throttle(handleScroll, 100));
-        handleScroll(); // Run on load
-
+       
         // Mobile Menu Toggle
         menuToggle.addEventListener('click', () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
