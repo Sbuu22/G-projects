@@ -13,7 +13,7 @@
       content="Gabekile Projects: general building, civil, electrical, mechanical engineering and project management. Proudly black-owned since 2018." />
 
 
-    <link rel="icon" type="image/png" href="logo/logo.png">
+    <link rel="icon" type="image/png" href="logo/Gabekile Projects Logo and Services.png">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet">
@@ -442,7 +442,6 @@
       margin-bottom: 25px;
     }
 
-    /* 🏆 UPDATED SUBTITLE STYLES (Consolidated and Final) */
     .section-subtitle {
       font-size: 50px;
       font-weight: 700;
@@ -956,11 +955,20 @@
     .process-section {
       padding: 60px 20px;
       text-align: center;
-      background: #fff;
+      background-color: #909090;
+      background-image: url('images/pexels-ywanphoto-188679.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-blend-mode: multiply;
+      position: relative;
+      color: #ccc;
+      z-index: 1;
     }
 
     .process-header h4 {
-      color: #6b7280;
+      color: #d1daf4;
       letter-spacing: 1.5px;
       font-size: 14px;
       margin-bottom: 10px;
@@ -973,7 +981,7 @@
     }
 
     .process-header p {
-      color: #6b7280;
+      color: #e7e5e5;
       max-width: 600px;
       margin: 0 auto 50px;
     }
@@ -997,7 +1005,7 @@
       width: 80%;
       max-width: 700px;
       height: 3px;
-      background: #6b7280;
+      background: #bababa;
       z-index: 1;
     }
 
@@ -1010,7 +1018,7 @@
       width: 90px;
       height: 90px;
       background: #ffb300;
-      color: #fff;
+      color: #ccc;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1039,7 +1047,7 @@
     }
 
     .process-step p {
-      color: #6b7280;
+      color: #ccc;
       line-height: 1.5;
     }
 
@@ -1065,9 +1073,10 @@
     }
 
 
+
     /* Our project */
     .full-page-banner {
-      background-image: url('images/1.jpg');
+      background-image: url('images/pexels-ywanphoto-188679.jpg');
       background-size: cover;
       background-position: center;
       padding: 100px 20px;
@@ -1714,7 +1723,7 @@
         </div>
 
         <div class="image-content">
-          <img src="logo/logo.png" alt="Gabekile Projects logo.">
+          <img src="logo/Gabekile Projects Logo and Services.png" alt="Gabekile Projects logo.">
         </div>
 
       </div>
@@ -2106,7 +2115,7 @@
 
       <div class="team-grid">
         <div class="team-card fade-in">
-          <img src="logo/logo.png" alt="Mr. Keith Mbatsane, Founder & CEO">
+          <img src="logo/Gabekile Projects Logo and Services.png" alt="Mr. Keith Mbatsane, Founder & CEO">
           <h3>Mr. Keith Mbatsane</h3>
           <p class="role">Founder & CEO</p>
           <p>
@@ -2119,7 +2128,7 @@
         </div>
 
         <div class="team-card fade-in">
-          <img src="logo/logo.png" alt="Project Engineer">
+          <img src="logo/Gabekile Projects Logo and Services.png" alt="Project Engineer">
           <h3>Gabekile Projects Team Member</h3>
           <p class="role">Project Engineer</p>
           <p>
@@ -2405,21 +2414,40 @@
     // =========================================================
 
     const backToTopBtn = document.getElementById('backToTop');
-    // Removed 'header' variable and sticky header logic.
 
-    window.addEventListener('scroll', () => {
+    // Throttle function for better scroll performance
+    const throttle = (func, limit) => {
+      let inThrottle;
+      return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      }
+    }
+
+    // Scroll handling function
+    const handleScroll = () => {
       // Back to Top Button visibility
       if (backToTopBtn) {
-        // Show/hide logic handles CSS `display: none`/`display: flex`
         backToTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
       }
-      // Removed Sticky Header Shrink Logic
-    });
+    };
+
+    window.addEventListener('scroll', throttle(handleScroll, 100));
+    // Initial call to check button visibility on load
+    handleScroll();
+
 
     // =========================================================
     // 4. NAVIGATION & SMOOTH SCROLLING
     // =========================================================
 
+    // NOTE: The previous CSS had #navbar for the container, and the toggle used .menu-toggle.
+    // Assuming you stick to the IDs provided here:
     const menuToggle = document.getElementById('menu-toggle');
     const navbarMenu = document.getElementById('navbar-menu');
 
@@ -2499,8 +2527,6 @@
     });
 
   });
-
-
 </script>
 </body>
 
