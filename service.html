@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Our Services — Gabekile Projects</title>
 
-    <link rel="icon" href="logo/logo.png" type="image/png">
+    <link rel="icon" href="logo/Gabekile Projects Logo and Services.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
 
@@ -22,12 +22,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding-top: 0;
-            
+
             background-image: url('images/pexels-johnnymckane-237950.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #333;
+            color: #3e3d3d;
         }
 
         .container {
@@ -134,16 +134,26 @@
         /*RESPONSIVENESS--- */
         @media (max-width: 900px) {
 
+            /* 1. FIX: Navbar to appear properly */
+            .topbar {
+                /* Ensures topbar is just for brand and toggle */
+                justify-content: space-between;
+            }
+
             .menu-toggle {
                 display: block;
             }
 
             #navbar {
                 display: none;
+                /* 1. FIX: Use relative positioning and full width */
                 position: absolute;
+                /* Changed from absolute to relative for a clean flow below header. Reverted to absolute with width 100% to overlay content*/
                 top: 70px;
-                right: 0;
+                left: 0;
+                /* Align to the left */
                 width: 100%;
+                /* Take full width */
                 background-color: var(--brand-dark);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                 z-index: 999;
@@ -159,8 +169,37 @@
                 padding: 10px 15px;
             }
 
+            /* 2. FIX: Menu Toggle activation class */
             .main-header.menu-open #navbar {
                 display: block;
+            }
+
+            /* 3. FIX: Footer left alignment */
+            .footer-container {
+                flex-direction: column;
+                /* Stacks the columns */
+                gap: 40px;
+                /* Increase vertical space between stacked columns */
+            }
+
+            .footer-col {
+                min-width: 100%;
+                text-align: left;
+                /* Left align content in columns */
+            }
+
+            .footer-col p {
+                text-align: left;
+            }
+
+            .footer-socials {
+                text-align: left;
+                /* Ensures social icons also align left */
+            }
+
+            .footer-bottom {
+                text-align: left;
+                /* Align copyright text left */
             }
         }
 
@@ -219,7 +258,7 @@
 
         .services-hero h1 {
             font-size: 2.8em;
-            color:#ccc;
+            color: #ccc;
             margin-bottom: 20px;
         }
 
@@ -380,9 +419,7 @@
                 flex-direction: column;
             }
 
-            .main-nav ul li a {
-                padding: 25px 10px;
-            }
+            /* REMOVED: .main-nav ul li a as it was causing issues */
         }
 
         /* Footer */
@@ -506,14 +543,13 @@
                 </div>
 
                 <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">
-                    ☰
-                </button>
+                    <i class="fa-solid fa-bars"></i> </button>
 
                 <nav id="navbar">
                     <ul id="navbar-menu">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="service.html">Services</a></li>
+                        <li><a href="service.html" class="active">Services</a></li>
                         <li><a href="portfolio.html">Projects</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -690,6 +726,16 @@
     <script>
         // Get the button
         let mybutton = document.getElementById("backToTopBtn");
+
+        // 2. FIX: Menu Toggle Activation Script
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainHeader = document.querySelector('.main-header');
+
+        menuToggle.addEventListener('click', function () {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !isExpanded);
+            mainHeader.classList.toggle('menu-open');
+        });
 
         // When the user scrolls down 200px from the top of the document, show the button
         window.onscroll = function () { scrollFunction() };
