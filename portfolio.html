@@ -7,8 +7,8 @@
 <title>GABEKILE Projects Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="logo/logo.png" sizes="32x32">
-<link rel="shortcut icon" href="logo/logo.png">
+<link rel="icon" type="image/png" href="logo/Gabekile Projects Logo and Services.png" sizes="32x32">
+<link rel="shortcut icon" href="logo/Gabekile Projects Logo and Services.png">
 
 
 <style>
@@ -126,7 +126,7 @@ HEADER & NAVIGATION
 
     .logo {
         width: 2.4rem;
-        height: 2.4rem;
+        height: 2.rem;
         background-color: var(--brand-yellow);
         color: var(--brand-dark);
         font-weight: 800;
@@ -149,9 +149,10 @@ HEADER & NAVIGATION
     }
 
     .brand-tagline {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.8125rem;
-        transition: opacity var(--transition-speed) ease;
+        color: rgb(180, 180, 180);
+        font-size: 0.7em;
+        display: block;
+        margin-top: 2px;
     }
 
     header.scrolled .brand-title {
@@ -677,10 +678,25 @@ RESPONSIVE DESIGN
             max-width: 100%;
         }
 
-        /* Navigation */
-        #navbar ul {
-            display: none;
+        @media (max-width: 768px) {
+            #navbar ul {
+                display: none;
+                flex-direction: column;
+                background-color: var(--brand-dark);
+                width: 100%;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            #navbar ul.show {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
         }
+
 
         /* Modal */
         .modal-content {
@@ -710,6 +726,15 @@ RESPONSIVE DESIGN
             padding: 0.625rem 0.9375rem;
             font-size: 0.9rem;
         }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+
     }
 
     /* Footer */
@@ -1238,9 +1263,6 @@ RESPONSIVE DESIGN
                 { src: "images/Kamau/Kamau5.jpg", alt: "Kamau residence" },
                 { src: "images/Kamau/Kamau6.jpg", alt: "Kamau residence" },
                 { src: "images/Kamau/Kamau7.jpg", alt: "Kamau residence" },
-
-
-
             ],
             description: "This is a proposed high-end residential project currently in the planning phase, involving comprehensive design and preliminary civil works. The focus is on a sustainable and modern family dwelling."
         },
@@ -1255,21 +1277,14 @@ RESPONSIVE DESIGN
                 { src: "images/Masher/Masher4.jpg", alt: "Masher residence" },
                 { src: "images/Masher/Masher5.jpg", alt: "Masher residence" },
                 { src: "images/Masher/Masher6.jpg", alt: "Masher residence" },
-
-
             ],
             description: "A luxury residential development entering the planning stage. The scope includes full construction management, integrating civil and general building expertise for a bespoke, client-driven design."
         }
     };
 
-    // Update HTML Project IDs to match the standardized JS keys for Masher, Kamau, and Zenzele (Guest House)
-    // 'guest house' -> 'zenzele-guest-house'
-    // 'Kamau residence' -> 'kamau-residence'
-    // 'Masher Residence' -> 'masher-residence'
-
 
     // ========================================================
-    // 2. CORE LOGIC
+    // 2. CORE LOGIC (FIXED)
     // ========================================================
     document.addEventListener('DOMContentLoaded', () => {
         // --- Element Queries ---
@@ -1293,7 +1308,12 @@ RESPONSIVE DESIGN
         // Navigation & Global elements
         const body = document.body;
         const header = document.querySelector('header');
-        const menuToggle = document.getElementById('menu-toggle');
+
+        // FIX: The menu toggle does not have an ID 'menu-toggle' in the HTML/CSS, only the class '.menu-toggle'
+        // We must query it by class instead of ID, or the standard element reference if the user adds an ID.
+        // Assuming the button element is queried by its class:
+        const menuToggle = document.querySelector('.menu-toggle');
+
         const navbar = document.getElementById('navbar');
         const backToTopBtn = document.getElementById('backToTopBtn');
         const SCROLL_THRESHOLD = 300;
@@ -1348,10 +1368,11 @@ RESPONSIVE DESIGN
             if (isVideo) {
                 modalMainVideo.src = media.src;
                 modalMainVideo.load(); // Ensure video loads immediately
-                modalMainVideo.play().catch(e => console.log('Video autoplay blocked:', e)); // Handle autoplay policies
+                // Handle video autoplay, which may be blocked by browsers
+                modalMainVideo.play().catch(e => console.log('Video autoplay blocked. User must click play.', e));
             } else {
                 modalMainImage.src = media.src;
-                if (modalMainVideo.pause) modalMainVideo.pause(); // Pause video if switching to image
+                if (modalMainVideo && modalMainVideo.pause) modalMainVideo.pause(); // Pause video if switching to image
             }
         };
 
@@ -1427,7 +1448,7 @@ RESPONSIVE DESIGN
             body.classList.remove('no-scroll');
 
             // Pause the video if open
-            if (modalMainVideo.pause) modalMainVideo.pause();
+            if (modalMainVideo && modalMainVideo.pause) modalMainVideo.pause();
 
             // Clear only the project hash on closing
             const currentHash = window.location.hash.substring(1);
@@ -1512,15 +1533,29 @@ RESPONSIVE DESIGN
 
         // --- Event Handlers ---
 
-       
-        // Mobile Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
 
-            navbar.classList.toggle('is-open');
-            body.classList.toggle('no-scroll');
-            menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-        });
+        // FIX 2: Mobile Menu Toggle Activation 
+        if (menuToggle && navbar) {
+            menuToggle.addEventListener('click', () => {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+
+                navbar.classList.toggle('is-open');
+                body.classList.toggle('no-scroll');
+                menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+            });
+
+            // Close mobile menu when a nav link is clicked (UX improvement)
+            navbar.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbar.classList.contains('is-open')) {
+                        navbar.classList.remove('is-open');
+                        body.classList.remove('no-scroll');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+
 
         // Filter Logic
         filterButtons.forEach(button => {
@@ -1564,21 +1599,34 @@ RESPONSIVE DESIGN
             }
         });
 
-        // Back to Top Button
+        // Back to Top Button smooth scroll logic (already here)
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Close mobile menu when a nav link is clicked (UX improvement)
-        navbar.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navbar.classList.contains('is-open')) {
-                    navbar.classList.remove('is-open');
-                    body.classList.remove('no-scroll');
-                    menuToggle.setAttribute('aria-expanded', 'false');
+        // FIX 4: Back to Top Button activation logic on scroll
+        const toggleBackToTop = throttle(() => {
+            if (window.scrollY > SCROLL_THRESHOLD) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }, 100); // Throttle scroll checks for performance
+
+        window.addEventListener('scroll', toggleBackToTop);
+        toggleBackToTop(); // Check position on load
+
+        // Header shrink/grow on scroll (optional, but good UX)
+        if (header) {
+            const toggleHeaderClass = throttle(() => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
-            });
-        });
+            }, 50);
+            window.addEventListener('scroll', toggleHeaderClass);
+        }
 
 
         // --- URL Hash Handler ---
