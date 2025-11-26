@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About Us — Gabekile Projects</title>
 
-    <link rel="icon" href="logo/logo.png" type="image/png">
+    <link rel="icon" href="logo/Gabekile Projects Logo and Services.png" type="image/png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
@@ -52,6 +52,9 @@
         .header {
             width: 100%;
             background-color: var(--brand-dark);
+            position: relative;
+            /* Added for absolute positioning of navbar */
+            z-index: 1000;
         }
 
         .topbar {
@@ -68,13 +71,15 @@
         }
 
         .brand .logo {
-            font-size: 24px;
-            font-weight: 800;
+            background: var(--brand-accent);
             color: var(--brand-dark);
-            background-color: var(--brand-accent);
-            padding: 0.5px 8px;
-            border-radius: var(--radius);
+            padding: 0.35rem 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: 800;
+            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
             text-decoration: none;
+            display: block;
         }
 
         .brand-title {
@@ -614,6 +619,7 @@
 
         @media (max-width: 768px) {
 
+            /* 1. Menu Toggle CSS */
             .menu-toggle {
                 display: block;
             }
@@ -622,11 +628,17 @@
                 display: none;
                 position: absolute;
                 top: 70px;
-                right: 0;
+                /* Starts right below the header */
+                left: 0;
                 width: 100%;
                 background-color: var(--brand-dark);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 z-index: 999;
+            }
+
+            /* Class added by JS to show the menu */
+            .header.menu-open #navbar {
+                display: block;
             }
 
             #navbar ul {
@@ -644,22 +656,28 @@
                 gap: 20px;
             }
 
-            .geo-grid {
-                grid-template-columns: 1fr;
-            }
-
+            /* 2. Footer Left Alignment CSS */
             .footer-container {
                 flex-direction: column;
                 gap: 40px;
-                text-align: center;
+                text-align: left;
+                /* Changes text alignment for the container */
             }
 
             .footer-col {
                 min-width: unset;
+                text-align: left;
+                /* Ensures column content is left-aligned */
             }
 
             .footer-socials {
-                text-align: center;
+                text-align: left;
+                /* Ensures social icons align left */
+            }
+
+            .footer-bottom {
+                text-align: left;
+                /* Ensures copyright section aligns left */
             }
         }
     </style>
@@ -681,13 +699,12 @@
                 </div>
 
                 <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">
-                    ☰
-                </button>
+                    <i class="fa-solid fa-bars"></i> </button>
 
                 <nav id="navbar">
                     <ul id="navbar-menu">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
                         <li><a href="service.html">Services</a></li>
                         <li><a href="portfolio.html">Projects</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -912,12 +929,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Mobile Menu Toggle Logic
+            // 1. FIX: Ensure the header is the element being toggled
             const menuToggle = document.getElementById('menu-toggle');
             const navbar = document.getElementById('navbar');
-            const header = document.querySelector('.header');
+            const header = document.querySelector('.header'); // Targetting the main header element
 
             if (menuToggle && header) {
                 function toggleMenu() {
+                    // Toggles the 'menu-open' class on the header
                     header.classList.toggle('menu-open');
                     const isExpanded = header.classList.contains('menu-open');
                     menuToggle.setAttribute('aria-expanded', isExpanded);
@@ -929,6 +948,7 @@
                     const navLinks = navbar.querySelectorAll('a');
                     navLinks.forEach(link => {
                         link.addEventListener('click', () => {
+                            // Close menu when a link is clicked
                             if (header.classList.contains('menu-open')) {
                                 header.classList.remove('menu-open');
                                 menuToggle.setAttribute('aria-expanded', 'false');
@@ -954,59 +974,6 @@
 
                 window.addEventListener('scroll', scrollFunction);
                 scrollFunction(); // Run once on load
-            }
-
-
-            // Geographic Presence Map Markers (Responsive positioning)
-            const mapWrapper = document.querySelector(".map-wrapper");
-            const svg = document.querySelector(".sa-map");
-
-            if (mapWrapper && svg) {
-                const locations = [
-                    { name: "Gauteng", x: 470, y: 470 },
-                    { name: "Mpumalanga", x: 550, y: 450 },
-                    { name: "Limpopo", x: 500, y: 380 },
-                    { name: "North West", x: 400, y: 500 }
-                ];
-
-                function placeMarkers() {
-                    // Remove old markers for responsive resizing
-                    mapWrapper.querySelectorAll(".map-marker, .marker-label, .connector-line").forEach(el => el.remove());
-
-                    const box = svg.getBoundingClientRect();
-                    const scaleX = box.width / 800; // SVG viewBox is 800 wide
-                    const scaleY = box.height / 800; // SVG viewBox is 800 high
-
-                    locations.forEach(loc => {
-                        const left = loc.x * scaleX;
-                        const top = loc.y * scaleY;
-
-                        // DOT
-                        const marker = document.createElement("div");
-                        marker.classList.add("map-marker");
-                        marker.style.left = left + "px";
-                        marker.style.top = top + "px";
-
-                        // LABEL
-                        const label = document.createElement("div");
-                        label.classList.add("marker-label");
-                        label.style.left = (left + 25) + "px";
-                        label.style.top = top + "px";
-                        label.textContent = loc.name;
-
-                        // CONNECTOR LINE
-                        const line = document.createElement("div");
-                        line.classList.add("connector-line");
-                        line.style.left = left + "px";
-                        line.style.top = top + "px";
-                        line.style.width = "25px";
-
-                        mapWrapper.append(marker, line, label);
-                    });
-                }
-
-                placeMarkers();
-                window.addEventListener("resize", placeMarkers);
             }
         });
 
